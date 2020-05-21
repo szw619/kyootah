@@ -100,5 +100,5 @@ theme: icarus
 deploy:
   type: git
   repository: 
-      tencent: root@122.51.4.233/home/git/hexoBlog
+      tencent: root@122.51.4.233:/home/git/hexoBlog
 	   
