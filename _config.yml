@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.dreamgotrue.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -100,5 +100,5 @@ theme: icarus
 deploy:
   type: git
   repository: 
-      tencent: root@122.51.4.233:/home/git/hexoBlog
+      tencent: https://github.com/szw619/kyootah.git # root@122.51.4.233:/home/git/hexoBlog
 	   
