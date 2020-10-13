@@ -99,6 +99,7 @@ theme: icarus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
+  message: update
   repository: 
-      tencent: https://github.com/szw619/kyootah.git # root@122.51.4.233:/home/git/hexoBlog
+      tencent: root@122.51.4.233:/home/git/hexoBlog.git   #https://github.com/szw619/kyootah.git
 	   

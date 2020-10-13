@@ -1,18 +1,25 @@
 ---
 title: hexo的搭建与部署
-date: 2019-06-20 10:26:27
+date: 2019-06-21 11:26:32
 tags:
  - hexo
- - 博客
- - 部署
 categories: 
  - hexo
 toc: true
-thumbnail: https://mixkit.imgix.net/art/preview/mixkit-starry-night-sky-over-hills-and-water-85-square-large.png?w=441&h=441&q=80&auto=format%2Ccompress&q=50&dpr=2
+thumbnail: http://upload.dreamgotrue.cn/2020/05/23/b3b02fbe1fab0.jpg
 ---
 
-记录一下hexo博客与Icarus主题的搭建与部署
+记录一下hexo与Icarus主题的搭建与自动部署到Linux服务器
 
 
 <!--more-->
+<!--more-->
+
+> 折腾了一晚上搭建了下hexo/icarus主题与配置自动部署到自己的Liunx服务器。
+>
+
+
+ 
+
+
 
