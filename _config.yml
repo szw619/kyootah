@@ -101,5 +101,5 @@ deploy:
   type: git
   message: update
   repository: 
-      tencent: root@122.51.4.233:/home/git/hexoBlog.git   #https://github.com/szw619/kyootah.git
+      tencent: https://github.com/szw619/kyootah.git # root@122.51.4.233:/home/git/hexoBlog.git
 	   
