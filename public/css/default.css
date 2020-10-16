@@ -10874,6 +10874,13 @@ article.article .content .message.message-immersive .message-body {
 @media screen and (max-width: 768px) {
   footer.footer .level-start {
     text-align: center;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  footer.footer .level-start .size-small {
+    justify-content: center;
+    margin-top: 1rem;
   }
 }
 footer.footer .level-end .field {
