@@ -1,13 +1,15 @@
 ---
 title: hexo icarus - 主题配置
 date: 2020-01-22 14:01:17
+categories:
+- 代码
 tags:
 - hexo
 - icarus
 - blog
 - 文档
 toc: true
-# cover: /images/477783156f942426dbff255eb669d31.png
+# thumbnail: /images/477783156f942426dbff255eb669d31.png
 ---
 摘自官方文章 [icarus用户指南-主题配置](https://blog.zhangruipeng.me/hexo-theme-icarus/Configuration/icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/) 
 主题配置文件在themes文件夹下的_config.yml，文本节选介绍了icarus配置文件的常用参数配置。(侵删)

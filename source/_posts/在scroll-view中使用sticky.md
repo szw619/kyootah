@@ -1,12 +1,15 @@
 ---
 title: 解决在scroll-view中使用sticky无效
 date: 2020-10-16 09:52:26
+categories:
+- 代码
+- 微信小程序
 tags:
 - 微信小程序
 - 踩坑
 - scroll-view
 - sticky
-# cover:
+# thumbnail:
 ---
 
 记录一下微信小程序的一个坑，在scroll-view使用sticky无效，解决方法：用一个view包住所有子项。
