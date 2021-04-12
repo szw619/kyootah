@@ -2,7 +2,7 @@
 title: hexo icarus - 主题配置
 date: 2020-01-22 14:01:17
 categories:
-- 代码
+- 博客
 tags:
 - hexo
 - icarus

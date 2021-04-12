@@ -2,7 +2,6 @@
 title: 解决在scroll-view中使用sticky无效
 date: 2020-10-16 09:52:26
 categories:
-- 代码
 - 微信小程序
 tags:
 - 微信小程序

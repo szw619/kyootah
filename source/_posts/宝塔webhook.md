@@ -2,7 +2,7 @@
 title: 使用webhook将github上的代码自动同步到服务器
 date: 2020-10-16 11:20:05
 categories:
-- 代码
+- 项目部署
 tags:
 - webhook
 - 部署

@@ -5210,7 +5210,7 @@ fieldset[disabled] .button {
 }
 @media screen and (min-width: 1088px) {
   .container {
-    max-width: 960px;
+    max-width: 1155px;
   }
 }
 @media screen and (max-width: 1279px) {
@@ -11355,8 +11355,8 @@ figure.highlight .section {
 @media screen and (min-width: 1280px) {
   .is-1-column .container,
   .is-2-column .container {
-    max-width: 960px;
-    width: 960px;
+    max-width: 1155px;
+    width: 1155px;
   }
 }
 @media screen and (min-width: 1472px) {
@@ -11365,8 +11365,8 @@ figure.highlight .section {
     width: 1152px;
   }
   .is-1-column .container {
-    max-width: 960px;
-    width: 960px;
+    max-width: 1155px;
+    width: 1155px;
   }
 }
 @media screen and (min-width: 769px), print {
