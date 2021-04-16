@@ -1,6 +1,11 @@
 ---
 title: 弹性布局flex详解
+subtitle: ""
+header-img: "/img/article_header/article_header.png"
+catalog: true
+toc_nav_num: true
 date: 2020-05-11 21:17:04
+updateDate: 2020-05-11 21:17:04
 categories:
 - css
 tags:
@@ -8,6 +13,8 @@ tags:
 - flex弹性布局
 toc: true
 top: 10
+
+ 
 ---
  
 

@@ -1,5 +1,7 @@
 ---
 title: div横向排版的几种方式
+catalog: true
+toc_nav_num: true
 date: 2020-04-12 21:30:45
 categories:
 - css
