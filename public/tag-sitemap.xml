@@ -23,20 +23,6 @@
     </url>
 
     <url>
-        <loc>http://www.huweihuang.com/tags/css/</loc>
-        <lastmod>2021-04-16T15:11:40.237Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.huweihuang.com/tags/flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80/</loc>
-        <lastmod>2021-04-16T15:11:40.237Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.huweihuang.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
         <lastmod>2021-04-16T16:01:13.421Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,6 +32,20 @@
     <url>
         <loc>http://www.huweihuang.com/tags/%E8%B8%A9%E5%9D%91/</loc>
         <lastmod>2021-04-16T16:01:13.421Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.huweihuang.com/tags/css/</loc>
+        <lastmod>2021-04-16T16:03:17.117Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.huweihuang.com/tags/flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80/</loc>
+        <lastmod>2021-04-16T16:03:17.117Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
