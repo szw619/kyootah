@@ -9,9 +9,10 @@ author: KyooTah
 language:
 timezone:
 
+favicon: /favicon.ico
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.huweihuang.com/       # Note: don't forget to modify the CNAME file to your url
+url: http://www.kyootah.com/       # Note: don't forget to modify the CNAME file to your url
 root: /
 #permalink: :year/:month/:day/:title/
 permalink: :category/:title/
@@ -211,7 +212,7 @@ alipay: alipay_url
 
 # Share
 # Reference: https://github.com/overtrue/share.js
-share: true
+share: false
 
 # Reference: https://github.com/YuyingWu/hexo-generator-index-plus
 index_generator_plus:
@@ -225,6 +226,10 @@ theme: huweihuang
 sitemap:
   path: sitemap.xml
 
+mathjax:
+  enable: true
+  cdn: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 # repository: https://github.com/huweihuang/xxxxxxx.github.io.git
@@ -234,3 +239,4 @@ deploy:
   message: update
   repository: 
       tencent: https://github.com/szw619/kyootah.git 
+

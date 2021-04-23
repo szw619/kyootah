@@ -49,8 +49,8 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
 设置轴的方向。
 * row（默认）：主轴水平方向，起点左端
 * row-reverse：主轴水平方向，起点右端
-* colunm：主轴垂直方向，起点上方
-* colunm-reverse：主轴垂直方向，起点下方
+* column：主轴垂直方向，起点上方
+* column-reverse：主轴垂直方向，起点下方
   
 ![](http://upload.dreamgotrue.cn/2021/04/14/6f1554a56176c.png)
 ![](http://upload.dreamgotrue.cn/2021/04/14/74686ba65f227.png) 
@@ -102,3 +102,42 @@ align-content属性定义了多根轴线的对齐方式。如果项目只有一�
 
 
 ## 项目属性
+项目属性用来设置容器内项目（某个元素）的相关样式，用于设置项目的尺寸、位置、对齐方式
+基本语法：
+* order
+* flex-basis
+* flex-grow
+* flex-shrink
+* flex
+* align-self
+
+### order
+`order` 属性定义项目的排列顺序。数值越小，排列越靠前，默认为0
+```html
+<div class="flexBox box">
+    <div style="order:1">1</div>
+    <div style="order:0">0</div>
+    <div style="order:2">2</div>
+    <div style="order:4">4</div>
+    <div style="order:3">3</div>
+    <div style="order:-1">-1</div>
+</div>
+```
+![](http://upload.dreamgotrue.cn/2021/04/22/7b053849d3a5d.png)
+
+
+### Flex-Basis
+`flex-basis` 控制一个子元素(flex项)的默认大小，但是它可以被其他的 Flexbox 属性影响（稍后详细介绍）。
+
+下图可以看出它与`width`的作用相同，都能设置宽度，当两者同时存在时Flex-Basis会覆盖width
+![](http://upload.dreamgotrue.cn/2021/04/23/3b7197ac49190.png)
+![](http://upload.dreamgotrue.cn/2021/04/23/c1498ad79fc38.png)
+
+但是他们之间还是有不同的？flex-basis 对应于 flex 轴线而言的：
+![](http://upload.dreamgotrue.cn/2021/04/23/5c881cfec67e9.png)
+flex-basis 影响元素在主轴(main axis)上的大小。
+ 
+
+### flex-grow（拉伸）
+属性定义项目的放大比例，默认为0，不放大。
+
