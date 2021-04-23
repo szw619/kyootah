@@ -144,13 +144,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -159,6 +152,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -214,7 +214,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Flex是<code>Flexible Box</code>的缩写，意为”<strong>弹性布局</strong>”，用来为盒状模型提供最大的灵活性,旨在提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。</p>
+                <h2 id="背景">背景</h2>
+<p>Flex是<code>Flexible Box</code>的缩写，意为”<strong>弹性布局</strong>”，用来为盒状模型提供最大的灵活性,旨在提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。</p>
 <p>Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度（和排列顺序），从而能够最好地填充可用空间 <strong>（主要是为了适应所有类型的显示设备和屏幕尺寸）</strong> flex布容器能够放大子元素使之尽可能填充可用空间，也可以收缩子元素使之不溢出。</p>
 <p>最重要的是，<strong>flexbox布局与方向无关</strong>，不同于常规布局（基于垂直的块（block）和基于水平的内联（inline））。 虽然传统布局适用于页面，但它们对于大型或复杂的应用程序布局来说缺乏灵活性（特别是在改变方向，调整大小，拉伸，收缩等方面）。</p>
 <p>注:</p>
@@ -223,32 +224,42 @@
 <li><strong>设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</strong></li>
 </ul>
 <a id="more"></a>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。<br><img src="http://upload.dreamgotrue.cn/2021/04/10/0426548eccf4c.png" alt="基本概念"></p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p> <img src="http://upload.dreamgotrue.cn/2021/04/10/2af8fcd984ece.png" alt="属性"></p>
-<h3 id="displayflex"><a href="#display-flex" class="headerlink" title="display:flex;"></a>display:flex;</h3><p><img src="http://upload.dreamgotrue.cn/2021/04/14/95163b9178a2a.png" alt> </p>
-<h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p>设置轴的方向。</p>
+<h2 id="基本概念">基本概念</h2>
+<p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称&quot;容器&quot;。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称&quot;项目&quot;。<br>
+<img src="http://upload.dreamgotrue.cn/2021/04/10/0426548eccf4c.png" alt="基本概念"></p>
+<h2 id="属性">属性</h2>
+<p><img src="http://upload.dreamgotrue.cn/2021/04/10/2af8fcd984ece.png" alt="属性"></p>
+<h3 id="displayflex">display:flex;</h3>
+<p><img src="http://upload.dreamgotrue.cn/2021/04/14/95163b9178a2a.png" alt></p>
+<h3 id="flex-direction">flex-direction</h3>
+<p>设置轴的方向。</p>
 <ul>
 <li>row（默认）：主轴水平方向，起点左端</li>
 <li>row-reverse：主轴水平方向，起点右端</li>
 <li>column：主轴垂直方向，起点上方</li>
 <li>column-reverse：主轴垂直方向，起点下方</li>
 </ul>
-<p><img src="http://upload.dreamgotrue.cn/2021/04/14/6f1554a56176c.png" alt><br><img src="http://upload.dreamgotrue.cn/2021/04/14/74686ba65f227.png" alt> </p>
-<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><ul>
+<p><img src="http://upload.dreamgotrue.cn/2021/04/14/6f1554a56176c.png" alt><br>
+<img src="http://upload.dreamgotrue.cn/2021/04/14/74686ba65f227.png" alt></p>
+<h3 id="flex-wrap">flex-wrap</h3>
+<ul>
 <li>nowrap（默认）：不换行</li>
 <li>wrap：换行，第一行在上方</li>
 <li>wrap-reverse：换行，第一行在下方</li>
 </ul>
 <p><img src="http://upload.dreamgotrue.cn/2021/04/14/07cbf0032f8d3.png" alt></p>
-<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><ul>
+<h3 id="justify-content">justify-content</h3>
+<ul>
 <li>flex-start（默认值）：左对齐</li>
 <li>flex-end：右对齐</li>
 <li>center：居中</li>
 <li>space-between：两端对齐，中间间隔平分</li>
 <li>space-around：每个项目间隔相等排列</li>
 </ul>
-<p><img src="http://upload.dreamgotrue.cn/2021/04/14/b1ceacb101b05.png" alt><br><img src="http://upload.dreamgotrue.cn/2021/04/14/7fc8fd8191def.png" alt></p>
-<h3 id="align-items单轴线"><a href="#align-items（单轴线）" class="headerlink" title="align-items（单轴线）"></a>align-items（单轴线）</h3><ul>
+<p><img src="http://upload.dreamgotrue.cn/2021/04/14/b1ceacb101b05.png" alt><br>
+<img src="http://upload.dreamgotrue.cn/2021/04/14/7fc8fd8191def.png" alt></p>
+<h3 id="align-items单轴线">align-items（单轴线）</h3>
+<ul>
 <li>stretch（默认）：如果项目没设高度或者高度auto，将占满容器高度</li>
 <li>flex-start：交叉轴的起点对齐</li>
 <li>flex-end：交叉轴的终点对齐</li>
@@ -256,9 +267,12 @@
 <li>baseline：项目的第一页文字的基线对齐</li>
 </ul>
 <p><img src="http://upload.dreamgotrue.cn/2021/04/14/76e873c7bfcaf.png" alt></p>
-<p>对于 <code>align-items: stretch</code> 来说，必须将每一个矩形子元素(flex项)的 <strong>高度设置为 auto</strong>，否则 height 属性将会覆盖该 stretch，如下图<br><img src="http://upload.dreamgotrue.cn/2021/04/15/45cc6510a98cf.png" alt></p>
-<p>对于 <code>align-items: baseline</code> 来说，对齐方式基于 <strong>第一行文本内容高度</strong>,要注意如果去掉段落标签或者没内容，矩形子元素(flex项)就会按照每个矩形的底部对齐,如下图：<br><img src="http://upload.dreamgotrue.cn/2021/04/15/b6d6c708b75d3.png" alt></p>
-<h3 id="align-content多轴线"><a href="#align-content（多轴线）" class="headerlink" title="align-content（多轴线）"></a>align-content（多轴线）</h3><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<p>对于 <code>align-items: stretch</code> 来说，必须将每一个矩形子元素(flex项)的 <strong>高度设置为 auto</strong>，否则 height 属性将会覆盖该 stretch，如下图<br>
+<img src="http://upload.dreamgotrue.cn/2021/04/15/45cc6510a98cf.png" alt></p>
+<p>对于 <code>align-items: baseline</code> 来说，对齐方式基于 <strong>第一行文本内容高度</strong>,要注意如果去掉段落标签或者没内容，矩形子元素(flex项)就会按照每个矩形的底部对齐,如下图：<br>
+<img src="http://upload.dreamgotrue.cn/2021/04/15/b6d6c708b75d3.png" alt></p>
+<h3 id="align-content多轴线">align-content（多轴线）</h3>
+<p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
 <ul>
 <li>stretch（默认）</li>
 <li>flex-start</li>
@@ -268,7 +282,9 @@
 <li>space-around：轴线再容器间隙均等分（两边会有间隙）</li>
 </ul>
 <p><img src="http://upload.dreamgotrue.cn/2021/04/15/4acd07e1cf3eb.png" alt></p>
-<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><p>项目属性用来设置容器内项目（某个元素）的相关样式，用于设置项目的尺寸、位置、对齐方式<br>基本语法：</p>
+<h2 id="项目属性">项目属性</h2>
+<p>项目属性用来设置容器内项目（某个元素）的相关样式，用于设置项目的尺寸、位置、对齐方式<br>
+基本语法：</p>
 <ul>
 <li>order</li>
 <li>flex-basis</li>
@@ -277,12 +293,20 @@
 <li>flex</li>
 <li>align-self</li>
 </ul>
-<h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><p><code>order</code> 属性定义项目的排列顺序。数值越小，排列越靠前，默认为0<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"flexBox box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:0"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:-1"</span>&gt;</span>-1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="order">order</h3>
+<p><code>order</code> 属性定义项目的排列顺序。数值越小，排列越靠前，默认为0</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"flexBox box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:0"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"order:-1"</span>&gt;</span>-1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://upload.dreamgotrue.cn/2021/04/22/7b053849d3a5d.png" alt></p>
-<h3 id="flex-basis"><a href="#Flex-Basis" class="headerlink" title="Flex-Basis"></a>Flex-Basis</h3><p><code>flex-basis</code> 控制一个子元素(flex项)的默认大小，但是它可以被其他的 Flexbox 属性影响（稍后详细介绍）。</p>
-<p>下图可以看出它与<code>width</code>的作用相同，都能设置宽度，当两者同时存在时Flex-Basis会覆盖width<br><img src="http://upload.dreamgotrue.cn/2021/04/23/3b7197ac49190.png" alt><br><img src="http://upload.dreamgotrue.cn/2021/04/23/c1498ad79fc38.png" alt></p>
-<p>但是他们之间还是有不同的？flex-basis 对应于 flex 轴线而言的：<br><img src="http://upload.dreamgotrue.cn/2021/04/23/5c881cfec67e9.png" alt><br>flex-basis 影响元素在主轴(main axis)上的大小。</p>
-<h3 id="flex-grow拉伸"><a href="#flex-grow（拉伸）" class="headerlink" title="flex-grow（拉伸）"></a>flex-grow（拉伸）</h3><p>属性定义项目的放大比例，默认为0，不放大。</p>
+<h3 id="flex-basis">Flex-Basis</h3>
+<p><code>flex-basis</code> 控制一个子元素(flex项)的默认大小，但是它可以被其他的 Flexbox 属性影响（稍后详细介绍）。</p>
+<p>下图可以看出它与<code>width</code>的作用相同，都能设置宽度，当两者同时存在时Flex-Basis会覆盖width<br>
+<img src="http://upload.dreamgotrue.cn/2021/04/23/3b7197ac49190.png" alt><br>
+<img src="http://upload.dreamgotrue.cn/2021/04/23/c1498ad79fc38.png" alt></p>
+<p>但是他们之间还是有不同的？flex-basis 对应于 flex 轴线而言的：<br>
+<img src="http://upload.dreamgotrue.cn/2021/04/23/5c881cfec67e9.png" alt><br>
+flex-basis 影响元素在主轴(main axis)上的大小。</p>
+<h3 id="flex-grow拉伸">flex-grow（拉伸）</h3>
+<p>属性定义项目的放大比例，默认为0，不放大。</p>
 
                 
 
