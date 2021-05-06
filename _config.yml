@@ -73,7 +73,7 @@ widgets:
 - recent-posts
 # - friends-blog
 - archive
-#- category
+- category
 
 # widget behavior
 ## Archive
