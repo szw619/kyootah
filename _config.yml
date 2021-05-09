@@ -4,7 +4,7 @@
 
 # Site
 title: KyooTah 
-subtitle: 佘泽文
+subtitle: 个人博客by佘泽文
 author: KyooTah
 language:
 timezone:
@@ -73,7 +73,7 @@ widgets:
 - recent-posts
 # - friends-blog
 - archive
-- category
+# - category
 
 # widget behavior
 ## Archive

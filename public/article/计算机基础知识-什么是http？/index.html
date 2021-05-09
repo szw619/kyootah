@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          div横向排版的几种方式 - KyooTah | Blog
+          计算机基础知识-什么是http？ - KyooTah | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.kyootah.com/css/div横向排版的几种方式/">
+    <link rel="canonical" href="http://www.kyootah.com/article/计算机基础知识-什么是http？/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,14 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#css" title="css">css</a>
+                              <a class="tag" href="/tags/#http" title="http">http</a>
                             
                         </div>
-                        <h1>div横向排版的几种方式</h1>
+                        <h1>计算机基础知识-什么是http？</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by KyooTah on
-                            2020-04-12
+                            2021-05-08
                         </span>
                     </div>
                 
@@ -212,46 +212,124 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>div盒子本身默认样式属性是独占一行，平时将各个内容横向排版是最常见的操作，记录总结一下div的几种横向排列方法~</p>
-<a id="more"></a>
-<p>以下面代码为例，列举下横向div排列的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;item div1&quot;&gt;div1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;item div2&quot;&gt;div2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;item div3&quot;&gt;div3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.wrap&#123;</span><br><span class="line">  width:500px;</span><br><span class="line">  background:#f0f0f0;</span><br><span class="line">&#125;</span><br><span class="line">.wrap .item&#123;</span><br><span class="line">  width:100px;</span><br><span class="line">  height:100px;</span><br><span class="line">  background:#ccc;</span><br><span class="line">  text-align:center;</span><br><span class="line">  line-height:100px;</span><br><span class="line">  margin:10px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload.dreamgotrue.cn/2021/04/07/e52a3bb76424c.png" alt="image"></p>
-<h2 id="一-浮动">一、浮动</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div2</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果：<br>
-<img src="http://upload.dreamgotrue.cn/2021/04/07/5dc5bf37973d5.png" alt="image"></p>
-<p>float 的特点：</p>
+                <blockquote>
+<p>阅读《图解http》总结，这本书通俗易懂，推荐阅读^_^<br>
+http 是 TCP/IP 内部的一个子集。</p>
+</blockquote>
+<h2 id="名词解释">名词解释</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名词</th>
+<th>解释</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">HTTP</td>
+<td>Hyper Text Transfer Protocol（超文本传输协议）<strong>（应用层）</strong></td>
+<td>从服务器传输<strong>文本</strong>到本地浏览器的传输协议</td>
+</tr>
+<tr>
+<td style="text-align:left">HTML</td>
+<td>超文本标记语言</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">URL</td>
+<td>统一资源定位系统（uniform resource locator）</td>
+<td>表示资源的地点。是URI的子集。</td>
+</tr>
+<tr>
+<td style="text-align:left">URI</td>
+<td>统一资源标志符（universal resource identifier）</td>
+<td>用字符串表示某一互联网资源</td>
+</tr>
+<tr>
+<td style="text-align:left">TCP/IP协议族</td>
+<td>与互联网相关的协议集合</td>
+<td>数据链路层、网络层、传输层和应用层四个协议集合</td>
+</tr>
+<tr>
+<td style="text-align:left">DNS</td>
+<td>域名系统（Domain Name System）</td>
+<td>域名到IP地址之间的解析服务。DNS协议提供通过域名/IP名双向查找。</td>
+</tr>
+<tr>
+<td style="text-align:left">TCP</td>
+<td>传输控制协议（Transmission Control Protocol）（<strong>传输层</strong>）</td>
+<td>进行数据分组，即对HTTP请求报文进行分割（为了方便运输，将大块数据分割成以报文段为单位的数据包进行管理）；并打上标记序号和端口号后转发给网络层。<strong>三次握手</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">IP</td>
+<td>网际协议**（网络层）**</td>
+<td>`把各种数据包传给对方。要确保传送有两个重要条件：IP地址、MAC地址。</td>
+</tr>
+<tr>
+<td style="text-align:left">IP地址</td>
+<td>指明了节点被分配到的地址；</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">MAC地址</td>
+<td>指网卡所属的固定地址</td>
+<td>（<strong>通信双方经过多台计算机和网络设备中转进行连接，中转的时候，会利用下一站中转设备的MAC地址来搜索下一个中转目标</strong>）</td>
+</tr>
+<tr>
+<td style="text-align:left">ARP协议</td>
+<td>解析地址的协议</td>
+<td><strong>根据通信方的IP地址，反查出对应的MAC地址</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">SSL</td>
+<td>安全套接字协议（Secure Sockets Layer）</td>
+<td>SSL协议位于TCP/IP协议与各种应用层协议之间，为数据通讯提供安全支持。（对传输数据进行加密）</td>
+</tr>
+<tr>
+<td style="text-align:left">TLS</td>
+<td>传输层安全（Transport Layer Security）</td>
+<td>它的前身是SSL，实现了将应用层的报文进行加密后再交由TCP进行传输</td>
+</tr>
+<tr>
+<td style="text-align:left">MIME</td>
+<td>多用途因特网邮件扩展（Multipurpose Internet Mail Extensions）</td>
+<td>用MIME类型可以设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开</td>
+</tr>
+</tbody>
+</table>
+<h2 id="了解web及网络基础">了解Web及网络基础</h2>
+<h3 id="网络基础tcpip-的分层管理">网络基础TCP/IP 的分层管理</h3>
+<p>注 http是TCP/IP内部的一个子集。</p>
 <ul>
-<li>左右浮动同时用时，顺序就会出现颠倒</li>
-<li>不会撑开，可以看到wrap的背景颜色没了，height变成0</li>
-<li>字会环绕在浮动元素周围</li>
+<li>
+<p>**应用层：**决定了向用户提供应用服务时的通信的活动。<strong>DNS（域名系统）、FTP（文件传输协议）、HTTP协议处于应用层</strong></p>
+</li>
+<li>
+<p>**传输层：**传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。传输层有两个性质不同的协议：TCP（传输     控制器协议）和UDP（用户数据报协议）<strong>TCP（传输控制协议）、UDP（用户数据报协议）属于传输层。</strong></p>
+</li>
+<li>
+<p>**网络层(又名网络互联层)：**用来处理在网络上流动的数据包。  与对方计算机之间通过多台计算机或网络设备进行传输时，网络层所起的作用就是在众多的选项内选择一条传输路线。<strong>IP（网际协议）属于网络层。</strong></p>
+</li>
+<li>
+<p>**链路层（数据链路层，网络接口层）：**用来处理网络连接的硬件部分。<strong>包括控制操作系统、硬件设备的驱动、NIC（网络适配器，即网卡）</strong></p>
+</li>
 </ul>
-<h2 id="二-inline-block-行块标签">二、inline-block 行块标签</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>, <span class="selector-class">.div2</span>, <span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload.dreamgotrue.cn/2021/04/07/eeafe59460bbe.png" alt="image"><br>
-inline-block存在的小问题：</p>
+<p>数据包是网络传输的最小数据单位。</p>
+<p>TCP/IP通信传输流：客户端到服务器通过分层顺序传输 路由选择：在到达通信目标前的中转过程，计算机和路由器等网络设备，都只能获悉很粗略的传输路线，无法掌握互联网中全面传输情况</p>
+<p>发送端：从应用层<strong>往下走</strong>；每通过一层会<strong>增加该层</strong>的首部信息（这种把数据信息包装起来的做法称为封装）；</p>
+<p>接收端：则从链路层<strong>往上走</strong>到应用层；每通过一层会<strong>删除该层</strong>的首部信息；</p>
+<p><img src="http://upload.dreamgotrue.cn/2021/05/09/cd4c7817e4c51.png" alt></p>
+<p><img src="http://upload.dreamgotrue.cn/2021/05/09/c370e3ba7bf2a.png" alt></p>
+<p>客户端发送到服务器的过程：</p>
+<p><img src="http://upload.dreamgotrue.cn/2021/05/09/39dd3f5883eec.png" alt></p>
+<h3 id="tcp的三次握手">TCP的三次握手</h3>
+<p>TCP的三次握手（是为了准确无误得将数据送达目标处，把包送出去后，向对方确认是否送达成功）</p>
 <ol>
-<li>
-<p>用了display:inline-block后，存在间隙问题，间隙为4像素，这个问题产生的原因是换行引起的，因为我们写标签时通常会在标签结束符后顺手打个回车，而回车会产生回车符，回车符相当于空白符，通常情况下，多个连续的空白符会合并成一个空白符，而产生“空白间隙”的真正原因就是这个让我们并不怎么注意的空白符。</p>
-</li>
-<li>
-<p>去除空隙的方法:对父元素添加，{font-size:0}，即将字体大小设为0，那么那个空白符也变成0px，从而消除空隙</p>
-</li>
+<li>发送端受限发送一个带SYN标志的数据包给对方。</li>
+<li>接收端收到后，回传一个带有SYN/ACK标志的数据包传达确认信息。</li>
+<li>最后，发送端再回传一个带ACK标志的数据包，代表握手结束。</li>
 </ol>
-<h2 id="三-flex-弹性盒子">三、flex 弹性盒子</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload.dreamgotrue.cn/2021/04/10/446ba728945a7.png" alt="image"></p>
-<p>可以通过 <code>justify-content</code> 属性调整子元素的水平对齐方式：</p>
-<ul>
-<li><code>flex-start</code>	默认值。项目位于容器的开头。</li>
-<li><code>flex-end</code>	项目位于容器的结尾。</li>
-<li><code>center</code>	项目位于容器的中心。</li>
-<li><code>space-between</code>	项目位于各行之间留有空白的容器内。</li>
-<li><code>space-around</code>	项目位于各行之前、之间、之后都留有空白的容器内。</li>
-<li><code>initial</code>	设置该属性为它的默认值。请参阅 initial。</li>
-<li><code>inherit</code>	从父元素继承该属性</li>
-</ul>
 
                 
 
@@ -259,10 +337,10 @@ inline-block存在的小问题：</p>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/css/弹性布局flex详解/" data-toggle="tooltip" data-placement="top" title="弹性布局flex详解">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/微信小程序/微信小程序后台播放音频/" data-toggle="tooltip" data-placement="top" title="微信小程序后台播放音频">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -301,12 +379,18 @@ inline-block存在的小问题：</p>
             <!-- Table of Contents -->
 
   
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
     
       <aside id="sidebar">
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一-浮动"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一、浮动</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二-inline-block-行块标签"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">二、inline-block 行块标签</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#三-flex-弹性盒子"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">三、flex 弹性盒子</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#名词解释"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">名词解释</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#了解web及网络基础"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">了解Web及网络基础</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#网络基础tcpip-的分层管理"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">网络基础TCP/IP 的分层管理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#tcp的三次握手"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">TCP的三次握手</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -326,7 +410,7 @@ inline-block存在的小问题：</p>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#css" title="css">css</a>
+                          <a class="tag" href="/tags/#http" title="http">http</a>
                         
                     </div>
                 </section>
