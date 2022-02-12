@@ -3,28 +3,20 @@ layout: "about"
 title: "About"
 date: 2018-10-03 10:48:33
 description: ""
-header-img: "/img/header_img/about.jpg"
+header-img: "/img/header_img/about3.jpg"
 aplayer: true
 fixed: false
 ---
-
-### 一句话
-
->奥里给！（干就完事！）
-
+ 
 ### 关于我
 
 >一个做前端的
 >喜欢敲代码
->喜欢研究一些花里胡哨的东西
->经常嬉皮笑脸，傻不拉几
+>喜欢徒步
+>喜欢思考（有时候想太多）
+>热爱音乐
 
-### 兴趣方向
-
-> 前端，C端交互研究
-> 架构设计
-
-
+  
 ### 联系我
 
 >Email: kyootah@foxmail.com
@@ -33,4 +25,4 @@ fixed: false
 
 
 
-#### 来听听歌~ 是的~ Aimer粉~
+#### 来听听歌 Aimer粉~

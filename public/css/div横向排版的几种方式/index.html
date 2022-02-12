@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_bg.jpg')
+            background-image: url('/img/article_header/article_bg3.jpg')
             /*post*/
         
     }
@@ -214,43 +214,39 @@
 
                 <p>div盒子本身默认样式属性是独占一行，平时将各个内容横向排版是最常见的操作，记录总结一下div的几种横向排列方法~</p>
 <a id="more"></a>
+
 <p>以下面代码为例，列举下横向div排列的方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;item div1&quot;&gt;div1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;item div2&quot;&gt;div2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;item div3&quot;&gt;div3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.wrap&#123;</span><br><span class="line">  width:500px;</span><br><span class="line">  background:#f0f0f0;</span><br><span class="line">&#125;</span><br><span class="line">.wrap .item&#123;</span><br><span class="line">  width:100px;</span><br><span class="line">  height:100px;</span><br><span class="line">  background:#ccc;</span><br><span class="line">  text-align:center;</span><br><span class="line">  line-height:100px;</span><br><span class="line">  margin:10px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
 <p><img src="http://upload.dreamgotrue.cn/2021/04/07/e52a3bb76424c.png" alt="image"></p>
-<h2 id="一-浮动">一、浮动</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div2</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果：<br>
-<img src="http://upload.dreamgotrue.cn/2021/04/07/5dc5bf37973d5.png" alt="image"></p>
+<h2 id="一-浮动"><a href="#一、浮动" class="headerlink" title="一、浮动"></a>一、浮动</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div2</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>:right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="http://upload.dreamgotrue.cn/2021/04/07/5dc5bf37973d5.png" alt="image"></p>
 <p>float 的特点：</p>
 <ul>
 <li>左右浮动同时用时，顺序就会出现颠倒</li>
 <li>不会撑开，可以看到wrap的背景颜色没了，height变成0</li>
 <li>字会环绕在浮动元素周围</li>
 </ul>
-<h2 id="二-inline-block-行块标签">二、inline-block 行块标签</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>, <span class="selector-class">.div2</span>, <span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload.dreamgotrue.cn/2021/04/07/eeafe59460bbe.png" alt="image"><br>
-inline-block存在的小问题：</p>
+<h2 id="二-inline-block-行块标签"><a href="#二、inline-block-行块标签" class="headerlink" title="二、inline-block 行块标签"></a>二、inline-block 行块标签</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>, <span class="selector-class">.div2</span>, <span class="selector-class">.div3</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://upload.dreamgotrue.cn/2021/04/07/eeafe59460bbe.png" alt="image"><br>inline-block存在的小问题：</p>
 <ol>
-<li>
-<p>用了display:inline-block后，存在间隙问题，间隙为4像素，这个问题产生的原因是换行引起的，因为我们写标签时通常会在标签结束符后顺手打个回车，而回车会产生回车符，回车符相当于空白符，通常情况下，多个连续的空白符会合并成一个空白符，而产生“空白间隙”的真正原因就是这个让我们并不怎么注意的空白符。</p>
-</li>
-<li>
-<p>去除空隙的方法:对父元素添加，{font-size:0}，即将字体大小设为0，那么那个空白符也变成0px，从而消除空隙</p>
-</li>
+<li>用了display:inline-block后，存在间隙问题，间隙为4像素，这个问题产生的原因是换行引起的，因为我们写标签时通常会在标签结束符后顺手打个回车，而回车会产生回车符，回车符相当于空白符，通常情况下，多个连续的空白符会合并成一个空白符，而产生“空白间隙”的真正原因就是这个让我们并不怎么注意的空白符。</li>
+<li>去除空隙的方法:对父元素添加，{font-size:0}，即将字体大小设为0，那么那个空白符也变成0px，从而消除空隙</li>
 </ol>
-<h2 id="三-flex-弹性盒子">三、flex 弹性盒子</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三-flex-弹性盒子"><a href="#三、flex-弹性盒子" class="headerlink" title="三、flex 弹性盒子"></a>三、flex 弹性盒子</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><img src="http://upload.dreamgotrue.cn/2021/04/10/446ba728945a7.png" alt="image"></p>
-<p>可以通过 <code>justify-content</code> 属性调整子元素的水平对齐方式：</p>
+<p> 可以通过 <code>justify-content</code> 属性调整子元素的水平对齐方式：</p>
 <ul>
-<li><code>flex-start</code>	默认值。项目位于容器的开头。</li>
-<li><code>flex-end</code>	项目位于容器的结尾。</li>
-<li><code>center</code>	项目位于容器的中心。</li>
-<li><code>space-between</code>	项目位于各行之间留有空白的容器内。</li>
-<li><code>space-around</code>	项目位于各行之前、之间、之后都留有空白的容器内。</li>
-<li><code>initial</code>	设置该属性为它的默认值。请参阅 initial。</li>
-<li><code>inherit</code>	从父元素继承该属性</li>
+<li><code>flex-start</code>    默认值。项目位于容器的开头。    </li>
+<li><code>flex-end</code>    项目位于容器的结尾。     </li>
+<li><code>center</code>    项目位于容器的中心。     </li>
+<li><code>space-between</code>    项目位于各行之间留有空白的容器内。     </li>
+<li><code>space-around</code>    项目位于各行之前、之间、之后都留有空白的容器内。     </li>
+<li><code>initial</code>    设置该属性为它的默认值。请参阅 initial。 </li>
+<li><code>inherit</code>    从父元素继承该属性</li>
 </ul>
 
                 
@@ -308,7 +304,7 @@ inline-block存在的小问题：</p>
     
       <aside id="sidebar">
         <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">目录</strong>
         
           <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一-浮动"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一、浮动</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二-inline-block-行块标签"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">二、inline-block 行块标签</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#三-flex-弹性盒子"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">三、flex 弹性盒子</span></a></li></ol>
         
@@ -443,7 +439,7 @@ inline-block存在的小问题：</p>
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; KyooTah 2021  
+                    Copyright &copy; KyooTah 2022  
                     
                  
                 </p>
