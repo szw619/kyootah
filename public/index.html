@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -295,7 +295,7 @@
         <div class="post-content-preview">
             
 
-...
+#...
         </div>
     </a>
     
@@ -330,9 +330,11 @@
 名词解释
 
 
+
 名词
 解释
 功能
+
 
 
 
@@ -347,8 +349,7 @@ HTML
 
 
 URL
-统一资源定位系统（uniform resource locator）
-......
+统一资源定位系统（uniform resource locator......
         </div>
     </a>
     
@@ -359,143 +360,6 @@ URL
         <div class="tags">
             
               <a href="/tags/#http" title="http">http</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/微信小程序/微信小程序后台播放音频/">
-        <h2 class="post-title">
-                                 
-            微信小程序后台播放音频
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            微信小程序播放音频途中息屏继续播放，或者后台接收消息提醒功能配置。
-
-
-全局配置实现后台播放须在app.js中做出声明，官方文档。
-123"requiredBackgroundModes": [    "audio"  ],
-
-播放音频方法改动要后台播放音频不能用audio组件，须换成api形式播放音频。
-12345678const backgroundAudioManager = wx.g......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by KyooTah on
-            2020-11-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/微信小程序/在scroll-view中使用sticky/">
-        <h2 class="post-title">
-                                 
-            解决在scroll-view中使用sticky无效
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-在小程序的scroll-view使用直接sticky粘性定位会出现无效问题。解决方法：用一个view包住所有子项。
-
-
-
-1234567891011121314151617.container&#123;  width: 100%;  height: 800rpx;&#125;.header &#123;  position: sticky;  position: -webkit-stic......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by KyooTah on
-            2020-10-16
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/ElementUI弹窗默认z-index层问题/">
-        <h2 class="post-title">
-                                 
-            ElementUI弹窗默认z-index层问题级
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-当我在Element的dailog组件中使用富文本编辑器tinymce-editor的时候发现图片上传弹窗的层级比Element组件的层级低了不少，导致显示被遮挡的情况，后来发现在引用的时候可以设置默认属性，记录一下加深印象。
-
-dailog组件默认会加上一个z-index
-官网文档有说明这个问题
-1Vue.use(Element, &#123; size: &apos;small&apo......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by KyooTah on
-            2020-07-08
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/理解JS中的new及其工作/">
-        <h2 class="post-title">
-                                 
-            理解JS中的new及其工作
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-new到底做了哪些事情？
-
-new到底做了哪些事情先举个栗子
-1234567891011function Person(firtName, lastName) &#123;  this.firtName = firtName;  this.lastName = lastName;&#125;Person.prototype.getFullName = function () &#123; ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by KyooTah on
-            2020-06-30
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#回归JS基础" title="回归JS基础">回归JS基础</a>
             
         </div>
     
@@ -537,6 +401,137 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
 
 <div class="post-preview">
 
+    <a href="/微信小程序/微信小程序后台播放音频/">
+        <h2 class="post-title">
+                                 
+            微信小程序后台播放音频
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            微信小程序播放音频途中息屏继续播放，或者后台接收消息提醒功能配置。
+
+全局配置实现后台播放须在app.js中做出声明，官方文档。
+123"requiredBackgroundModes": [    "audio"  ],
+播放音频方法改动要后台播放音频不能用audio组件，须换成api形式播放音频。12345678const backgroundAudioManager = wx.getB......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2020-11-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/微信小程序/在scroll-view中使用sticky/">
+        <h2 class="post-title">
+                                 
+            解决在scroll-view中使用sticky无效
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+在小程序的scroll-view使用直接sticky粘性定位会出现无效问题。解决方法：用一个view包住所有子项。
+
+
+1234567891011121314151617.container&#123;  width: 100%;  height: 800rpx;&#125;.header &#123;  position: sticky;  position: -webkit-stick......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2020-10-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/ElementUI弹窗默认z-index层问题/">
+        <h2 class="post-title">
+                                 
+            ElementUI弹窗默认z-index层问题级
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+当我在Element的dailog组件中使用富文本编辑器tinymce-editor的时候发现图片上传弹窗的层级比Element组件的层级低了不少，导致显示被遮挡的情况，后来发现在引用的时候可以设置默认属性，记录一下加深印象。
+
+dailog组件默认会加上一个z-index
+官网文档有说明这个问题1Vue.use(Element, &#123; size: &apos;small&apos......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2020-07-08
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/理解JS中的new及其工作/">
+        <h2 class="post-title">
+                                 
+            理解JS中的new及其工作
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+new到底做了哪些事情？
+
+new到底做了哪些事情先举个栗子1234567891011function Person(firtName, lastName) &#123;  this.firtName = firtName;  this.lastName = lastName;&#125;Person.prototype.getFullName = function () &#123;  ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2020-06-30
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#回归JS基础" title="回归JS基础">回归JS基础</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/css/div横向排版的几种方式/">
         <h2 class="post-title">
                                  
@@ -548,9 +543,8 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
         <div class="post-content-preview">
             div盒子本身默认样式属性是独占一行，平时将各个内容横向排版是最常见的操作，记录总结一下div的几种横向排列方法~
 
-
 以下面代码为例，列举下横向div排列的方法
-1234567891011121314151617181920&lt;div class=&quot;wrap&quot;&gt;    &lt;div class=&quot;item div1&quot;&gt;div1&lt......
+1234567891011121314151617181920&lt;div class=&quot;wrap&quot;&gt;    &lt;div class=&quot;item div1&quot;&gt;div1&lt;......
         </div>
     </a>
     
@@ -576,7 +570,7 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
     
     
         <li class="next">
-            <a href="/archives/2/">Older Posts &rarr;</a>
+            <a href="/page/2/">Older Posts &rarr;</a>
         </li>
     
 </ul>
@@ -609,6 +603,10 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
     <div class="tags">
         
             
+            <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题" rel="4">工作中遇到的问题</a>
+            
+        
+            
             <a href="/tags/#BFC" title="BFC" rel="1">BFC</a>
             
         
@@ -625,19 +623,7 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
             
         
             
-            <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题" rel="4">工作中遇到的问题</a>
-            
-        
-            
             <a href="/tags/#回归JS基础" title="回归JS基础" rel="2">回归JS基础</a>
-            
-        
-            
-            <a href="/tags/#网络基础" title="网络基础" rel="1">网络基础</a>
-            
-        
-            
-            <a href="/tags/#浏览器缓存" title="浏览器缓存" rel="1">浏览器缓存</a>
             
         
             
@@ -646,6 +632,14 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
         
             
             <a href="/tags/#http" title="http" rel="1">http</a>
+            
+        
+            
+            <a href="/tags/#网络基础" title="网络基础" rel="1">网络基础</a>
+            
+        
+            
+            <a href="/tags/#浏览器缓存" title="浏览器缓存" rel="1">浏览器缓存</a>
             
         
     </div>
