@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/avatar/avatar.jpg">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          计算机基础知识-什么是http？ - KyooTah | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.kyootah.com/article/计算机基础知识-什么是http？/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg3.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#http" title="http">http</a>
+                            
+                        </div>
+                        <h1>计算机基础知识-什么是http？</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by KyooTah on
+                            2021-05-08
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KyooTah</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>阅读《图解http》总结，这本书通俗易懂，推荐阅读^_^<br>
+http 是 TCP/IP 内部的一个子集。</p>
+</blockquote>
+<h2 id="名词解释">名词解释</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名词</th>
+<th>解释</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">HTTP</td>
+<td>Hyper Text Transfer Protocol（超文本传输协议）<strong>（应用层）</strong></td>
+<td>从服务器传输<strong>文本</strong>到本地浏览器的传输协议</td>
+</tr>
+<tr>
+<td style="text-align:left">HTML</td>
+<td>超文本标记语言</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">URL</td>
+<td>统一资源定位系统（uniform resource locator）</td>
+<td>表示资源的地点。是URI的子集。</td>
+</tr>
+<tr>
+<td style="text-align:left">URI</td>
+<td>统一资源标志符（universal resource identifier）</td>
+<td>用字符串表示某一互联网资源</td>
+</tr>
+<tr>
+<td style="text-align:left">TCP/IP协议族</td>
+<td>与互联网相关的协议集合</td>
+<td>数据链路层、网络层、传输层和应用层四个协议集合</td>
+</tr>
+<tr>
+<td style="text-align:left">DNS</td>
+<td>域名系统（Domain Name System）</td>
+<td>域名到IP地址之间的解析服务。DNS协议提供通过域名/IP名双向查找。</td>
+</tr>
+<tr>
+<td style="text-align:left">TCP</td>
+<td>传输控制协议（Transmission Control Protocol）（<strong>传输层</strong>）</td>
+<td>进行数据分组，即对HTTP请求报文进行分割（为了方便运输，将大块数据分割成以报文段为单位的数据包进行管理）；并打上标记序号和端口号后转发给网络层。<strong>三次握手</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">IP</td>
+<td>网际协议**（网络层）**</td>
+<td>`把各种数据包传给对方。要确保传送有两个重要条件：IP地址、MAC地址。</td>
+</tr>
+<tr>
+<td style="text-align:left">IP地址</td>
+<td>指明了节点被分配到的地址；</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">MAC地址</td>
+<td>指网卡所属的固定地址</td>
+<td>（<strong>通信双方经过多台计算机和网络设备中转进行连接，中转的时候，会利用下一站中转设备的MAC地址来搜索下一个中转目标</strong>）</td>
+</tr>
+<tr>
+<td style="text-align:left">ARP协议</td>
+<td>解析地址的协议</td>
+<td><strong>根据通信方的IP地址，反查出对应的MAC地址</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">SSL</td>
+<td>安全套接字协议（Secure Sockets Layer）</td>
+<td>SSL协议位于TCP/IP协议与各种应用层协议之间，为数据通讯提供安全支持。（对传输数据进行加密）</td>
+</tr>
+<tr>
+<td style="text-align:left">TLS</td>
+<td>传输层安全（Transport Layer Security）</td>
+<td>它的前身是SSL，实现了将应用层的报文进行加密后再交由TCP进行传输</td>
+</tr>
+<tr>
+<td style="text-align:left">MIME</td>
+<td>多用途因特网邮件扩展（Multipurpose Internet Mail Extensions）</td>
+<td>用MIME类型可以设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开</td>
+</tr>
+</tbody>
+</table>
+<h2 id="了解web及网络基础">了解Web及网络基础</h2>
+<h3 id="网络基础tcpip-的分层管理">网络基础TCP/IP 的分层管理</h3>
+<p>注 http是TCP/IP内部的一个子集。</p>
+<ul>
+<li>
+<p>**应用层：**决定了向用户提供应用服务时的通信的活动。<strong>DNS（域名系统）、FTP（文件传输协议）、HTTP协议处于应用层</strong></p>
+</li>
+<li>
+<p>**传输层：**传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。传输层有两个性质不同的协议：TCP（传输     控制器协议）和UDP（用户数据报协议）<strong>TCP（传输控制协议）、UDP（用户数据报协议）属于传输层。</strong></p>
+</li>
+<li>
+<p>**网络层(又名网络互联层)：**用来处理在网络上流动的数据包。  与对方计算机之间通过多台计算机或网络设备进行传输时，网络层所起的作用就是在众多的选项内选择一条传输路线。<strong>IP（网际协议）属于网络层。</strong></p>
+</li>
+<li>
+<p>**链路层（数据链路层，网络接口层）：**用来处理网络连接的硬件部分。<strong>包括控制操作系统、硬件设备的驱动、NIC（网络适配器，即网卡）</strong></p>
+</li>
+</ul>
+<p>数据包是网络传输的最小数据单位。</p>
+<p>TCP/IP通信传输流：客户端到服务器通过分层顺序传输 路由选择：在到达通信目标前的中转过程，计算机和路由器等网络设备，都只能获悉很粗略的传输路线，无法掌握互联网中全面传输情况</p>
+<p>发送端：从应用层<strong>往下走</strong>；每通过一层会<strong>增加该层</strong>的首部信息（这种把数据信息包装起来的做法称为封装）；</p>
+<p>接收端：则从链路层<strong>往上走</strong>到应用层；每通过一层会<strong>删除该层</strong>的首部信息；</p>
+<p><img src="http://upload.dreamgotrue.cn/2021/05/09/cd4c7817e4c51.png" alt></p>
+<p><img src="http://upload.dreamgotrue.cn/2021/05/09/c370e3ba7bf2a.png" alt></p>
+<p>客户端发送到服务器的过程：</p>
+<p><img src="http://upload.dreamgotrue.cn/2021/05/09/39dd3f5883eec.png" alt></p>
+<h3 id="tcp的三次握手">TCP的三次握手</h3>
+<p>TCP的三次握手（是为了准确无误得将数据送达目标处，把包送出去后，向对方确认是否送达成功）</p>
+<ol>
+<li>发送端受限发送一个带SYN标志的数据包给对方。</li>
+<li>接收端收到后，回传一个带有SYN/ACK标志的数据包传达确认信息。</li>
+<li>最后，发送端再回传一个带ACK标志的数据包，代表握手结束。</li>
+</ol>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/【在JavaScript中理解数据结构】链表/" data-toggle="tooltip" data-placement="top" title="【在JavaScript中理解数据结构】- 链表">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/微信小程序/微信小程序后台播放音频/" data-toggle="tooltip" data-placement="top" title="微信小程序后台播放音频">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#名词解释"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">名词解释</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#了解web及网络基础"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">了解Web及网络基础</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#网络基础tcpip-的分层管理"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">网络基础TCP/IP 的分层管理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#tcp的三次握手"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">TCP的三次握手</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#http" title="http">http</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/smoothscroll/1.4.9/SmoothScroll.min.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/nomi43786118">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/szw619">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KyooTah 2022  
+                    
+                 
+                </p>
+                <p class="copyright text-muted"><a  href="https://beian.miit.gov.cn/" >
+                    粤ICP备18158227号
+                </a></p>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.kyootah.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.kyootah.com/img/icon_wechat.png" width="0" height="0" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
