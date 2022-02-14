@@ -27,4 +27,4 @@ const wyf = new Person('Wu', 'yifang');
 console.log(wyf); 
 ```
 查看一下控制台打印的wyf实例
-![](http://upload.dreamgotrue.cn/2021/07/30/02f6089556c4f.png)
+![](http://img.kyootah.com/2021/07/30/02f6089556c4f.png)

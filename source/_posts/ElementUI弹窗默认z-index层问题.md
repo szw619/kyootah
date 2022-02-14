@@ -15,11 +15,11 @@ tags:
 >当我在Element的dailog组件中使用富文本编辑器tinymce-editor的时候发现图片上传弹窗的层级比Element组件的层级低了不少，导致显示被遮挡的情况，后来发现在引用的时候可以设置默认属性，记录一下加深印象。
 
 dailog组件默认会加上一个z-index
-![](http://upload.dreamgotrue.cn/2021/05/08/60f5654be8bc0.png)
+![](http://img.kyootah.com/2021/05/08/60f5654be8bc0.png)
 
 官网文档有说明这个问题
 ```
 Vue.use(Element, { size: 'small', zIndex: 3000 });
 ```
-![](http://upload.dreamgotrue.cn/2021/05/08/b74f1f827cda1.png)
+![](http://img.kyootah.com/2021/05/08/b74f1f827cda1.png)
 
