@@ -22,12 +22,12 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: KyooTah | Blog
+SEOTitle: 佘泽文 | Blog
 email: e-mail_address
 description: ""
 keyword: ""
 header-img: /img/header_img/home.jpg
-article-img: /img/article_header/article_bg3.jpg
+article-img: /img/article_header/article_bg4.jpg
 404-img: /img/header_img/404.png
 signature: false #show signature
 signature-img: img/signature/BeanTechSign-white.png 

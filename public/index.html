@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          KyooTah | Blog
+          佘泽文 | Blog
         
     </title>
 
@@ -223,14 +223,10 @@
             
 在解析URL之后浏览器根据缓存（强缓存、协商缓存）规则来决定是否取用缓存还是加载服务器资源来进行加载。
 
-强缓存
-强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。
-强缓存又分为两种：Expires和Cache-Control
-
+强缓存强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。强缓存又分为两种：Expires和Cache-Control
 强缓存验证
-
 验证位置：本地（内存或者硬盘，根据浏览器策略决定）
-验证字段：expires (http1.0中出现)和......
+验证字段：expires (http1.0中出现)和cach......
         </div>
     </a>
     
@@ -262,8 +258,7 @@
         </h3>
         <div class="post-content-preview">
             定意
-
-在解释BFC之前，先说一下文档流。我们常说的文档流其实分为定位流、浮动流和普通流三种。而普通流其实就是指BFC中的FC。FC是formatting context的首字母缩写，直译过来是格式化上下文，它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其他元素之间的关系和作用。常见的FC有BFC、IFC，还有GFC和FFC。BFC是block formatting......
+在解释BFC之前，先说一下文档流。我们常说的文档流其实分为定位流、浮动流和普通流三种。而普通流其实就是指BFC中的FC。FC是formatting context的首字母缩写，直译过来是格式化上下文，它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其他元素之间的关系和作用。常见的FC有BFC、IFC，还有GFC和FFC。BFC是block formatting ......
         </div>
     </a>
     
@@ -330,17 +325,14 @@
         </h3>
         <div class="post-content-preview">
             
-阅读《图解http》总结，这本书通俗易懂，推荐阅读^_^
-http 是 TCP/IP 内部的一个子集。
+阅读《图解http》总结，这本书通俗易懂，推荐阅读^_^http 是 TCP/IP 内部的一个子集。
 
 名词解释
-
 
 
 名词
 解释
 功能
-
 
 
 
@@ -355,7 +347,8 @@ HTML
 
 
 URL
-统一资源定位系统（uniform resource locato......
+统一资源定位系统（uniform resource locator）
+......
         </div>
     </a>
     
@@ -384,9 +377,8 @@ URL
             flex学习详细记录，理解各个属性的特性及用法。
         </h3>
         <div class="post-content-preview">
-            背景
-Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性,旨在提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。
-Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度（和排列顺序），从而能够最好地填充可用空间 （主要是为了适应所有类型的显示设备和屏幕尺寸） flex布容器能够放大子元......
+            背景Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性,旨在提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。
+Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度（和排列顺序），从而能够最好地填充可用空间 （主要是为了适应所有类型的显示设备和屏幕尺寸） flex布容器能够放大子元素......
         </div>
     </a>
     
@@ -419,11 +411,11 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
         <div class="post-content-preview">
             微信小程序播放音频途中息屏继续播放，或者后台接收消息提醒功能配置。
 
-全局配置
-实现后台播放须在app.js中做出声明，官方文档。
+
+全局配置实现后台播放须在app.js中做出声明，官方文档。
 123"requiredBackgroundModes": [    "audio"  ],
-播放音频方法改动
-要后台播放音频不能用audio组件，须换成api形式播放音频。
+
+播放音频方法改动要后台播放音频不能用audio组件，须换成api形式播放音频。
 12345678const backgroundAudioManager = wx.g......
         </div>
     </a>
@@ -457,7 +449,8 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
 在小程序的scroll-view使用直接sticky粘性定位会出现无效问题。解决方法：用一个view包住所有子项。
 
 
-1234567891011121314151617.container&#123;  width: 100%;  height: 800rpx;&#125;.header &#123;  position: sticky;  position: -webkit-stick......
+
+1234567891011121314151617.container&#123;  width: 100%;  height: 800rpx;&#125;.header &#123;  position: sticky;  position: -webkit-stic......
         </div>
     </a>
     
@@ -490,9 +483,8 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
 当我在Element的dailog组件中使用富文本编辑器tinymce-editor的时候发现图片上传弹窗的层级比Element组件的层级低了不少，导致显示被遮挡的情况，后来发现在引用的时候可以设置默认属性，记录一下加深印象。
 
 dailog组件默认会加上一个z-index
-
 官网文档有说明这个问题
-1Vue.use(Element, &#123; size: &apos;small&ap......
+1Vue.use(Element, &#123; size: &apos;small&apo......
         </div>
     </a>
     
@@ -524,9 +516,8 @@ dailog组件默认会加上一个z-index
             
 new到底做了哪些事情？
 
-new到底做了哪些事情
-先举个栗子
-1234567891011function Person(firtName, lastName) &#123;  this.firtName = firtName;  this.lastName = lastName;&#125;Person.prototype.getFullName = function () &#123;......
+new到底做了哪些事情先举个栗子
+1234567891011function Person(firtName, lastName) &#123;  this.firtName = firtName;  this.lastName = lastName;&#125;Person.prototype.getFullName = function () &#123; ......
         </div>
     </a>
     
@@ -557,8 +548,9 @@ new到底做了哪些事情
         <div class="post-content-preview">
             div盒子本身默认样式属性是独占一行，平时将各个内容横向排版是最常见的操作，记录总结一下div的几种横向排列方法~
 
+
 以下面代码为例，列举下横向div排列的方法
-1234567891011121314151617181920&lt;div class=&quot;wrap&quot;&gt;    &lt;div class=&quot;item div1&quot;&gt;div1&lt;......
+1234567891011121314151617181920&lt;div class=&quot;wrap&quot;&gt;    &lt;div class=&quot;item div1&quot;&gt;div1&lt......
         </div>
     </a>
     
@@ -641,10 +633,6 @@ new到底做了哪些事情
             
         
             
-            <a href="/tags/#flex弹性布局" title="flex弹性布局" rel="1">flex弹性布局</a>
-            
-        
-            
             <a href="/tags/#网络基础" title="网络基础" rel="1">网络基础</a>
             
         
@@ -654,6 +642,10 @@ new到底做了哪些事情
         
             
             <a href="/tags/#http" title="http" rel="1">http</a>
+            
+        
+            
+            <a href="/tags/#flex弹性布局" title="flex弹性布局" rel="1">flex弹性布局</a>
             
         
     </div>
