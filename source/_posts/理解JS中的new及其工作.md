@@ -5,10 +5,11 @@ date: 2020-06-30 16:16:40
 subtitle:
 header-img:
 tags:
-- 回归JS基础
+- JS基础
+- JavaScript深入
 ---
 
-> new到底做了哪些事情？
+> 日常开发中`new`经常会出现在代码里，是时候花点时间深入理解一下`new`相关的知识点了。
 
 ### new到底做了哪些事情
 
@@ -25,6 +26,4 @@ Person.prototype.getFullName = function () {
 
 const wyf = new Person('Wu', 'yifang');
 console.log(wyf); 
-```
-查看一下控制台打印的wyf实例
-![](http://img.kyootah.com/2021/07/30/02f6089556c4f.png)
+``` 
