@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          理解JS中的new及其工作 - 佘泽文 | Blog
+          可选链式操作符(?.) - 佘泽文 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.kyootah.com/article/理解JS中的new及其工作/">
+    <link rel="canonical" href="http://www.kyootah.com/article/ES2020可选链式操作符/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,16 +88,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#JavaScript深入" title="JavaScript深入">JavaScript深入</a>
+                              <a class="tag" href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
                             
-                              <a class="tag" href="/tags/#JS基础" title="JS基础">JS基础</a>
+                              <a class="tag" href="/tags/#js基础" title="js基础">js基础</a>
                             
                         </div>
-                        <h1>理解JS中的new及其工作</h1>
+                        <h1>可选链式操作符(?.)</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by KyooTah on
-                            2020-06-30
+                            2021-09-22
                         </span>
                     </div>
                 
@@ -214,23 +214,24 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>日常开发中<code>new</code>经常会出现在代码里，是时候花点时间深入理解一下<code>new</code>相关的知识点了。</p>
+                <h2 id="定意">定意</h2>
+<blockquote>
+<p>可选链式操作符(?.)允许读取位于连接对象链深处的属性值, 而不必明确验证链中的每个引用是否有效。</p>
 </blockquote>
-<h3 id="new到底做了哪些事情">new到底做了哪些事情</h3>
-<p>先举个栗子</p>
-<pre><code class="language-js">function Person(firtName, lastName) {
-  this.firtName = firtName;
-  this.lastName = lastName;
-}
-
-Person.prototype.getFullName = function () {
-  return `${this.firtName} ${this.lastName}`;
-};
-
-const wyf = new Person('Wu', 'yifang');
-console.log(wyf); 
-</code></pre>
+<p>通俗点讲：该操作符跟.链式操作符类似, 不同之处在于引用为null或者undefined的情况下不会引起报错, 不存在返回值是undefined.</p>
+<h2 id="作用">作用</h2>
+<p>在查询具有多个层级的对象时、不再需要进行冗余的前置校验、</p>
+<h2 id="链式操作符">链式操作符(.)</h2>
+<p>我们平时开发时要取对象中的某一个属性时用到,但遇到对象是null或undefined时就会报错。<br>
+为了避免报错，我们需要对对象进行一个非空判断，当对象有很多层嵌套时，就会产生大量类似繁琐的校验步骤。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> status1 =  obj &amp;&amp; obj.info &amp;&amp; obj.info.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status1) <span class="comment">//null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> status2 = obj.info.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status2) <span class="comment">//error</span></span><br></pre></td></tr></table></figure>
+<p>我们会发现，如果不先确认对象非null，就会出现报错，判断了又多写很多校验代码。<br>
+于是有了** 可选链式操作符(?.)**</p>
+<h2 id="可选链式操作符">可选链式操作符(?.)</h2>
+<p>我们来试下通过可选链式操作符(?.)简化上面繁琐的校验步骤。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> status=obj?.info?.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status) <span class="comment">// null;</span></span><br></pre></td></tr></table></figure>
+<p>是不是简洁很多了。<br>
+结果是：若该obj或者obj.info为null/undefined, 则会直接返回undefined;</p>
 
                 
 
@@ -239,12 +240,12 @@ console.log(wyf);
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/ElementUI弹窗默认z-index层问题/" data-toggle="tooltip" data-placement="top" title="ElementUI弹窗默认z-index层问题级">&larr; Previous Post</a>
+                            <a href="/article/浏览器缓存/" data-toggle="tooltip" data-placement="top" title="理解浏览器缓存与存取流程">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/css/弹性布局flex详解/" data-toggle="tooltip" data-placement="top" title="弹性布局flex详解">Next Post &rarr;</a>
+                            <a href="/article/BFC理解与应用/" data-toggle="tooltip" data-placement="top" title="BFC理解与应用">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -295,7 +296,7 @@ console.log(wyf);
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#new到底做了哪些事情"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">new到底做了哪些事情</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#定意"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">定意</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#作用"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">作用</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#链式操作符"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">链式操作符(.)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#可选链式操作符"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">可选链式操作符(?.)</span></a></li></ol>
         
         </div>
       </aside>
@@ -315,9 +316,9 @@ console.log(wyf);
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#JavaScript深入" title="JavaScript深入">JavaScript深入</a>
+                          <a class="tag" href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
                         
-                          <a class="tag" href="/tags/#JS基础" title="JS基础">JS基础</a>
+                          <a class="tag" href="/tags/#js基础" title="js基础">js基础</a>
                         
                     </div>
                 </section>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/avatar/avatar.jpg">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          理解浏览器与node的事件循环机制 - 佘泽文 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.kyootah.com/article/事件循环机制/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_bg4.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#JavaScript深入" title="JavaScript深入">JavaScript深入</a>
+                            
+                              <a class="tag" href="/tags/#事件循环" title="事件循环">事件循环</a>
+                            
+                        </div>
+                        <h1>理解浏览器与node的事件循环机制</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by KyooTah on
+                            2021-10-03
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">KyooTah</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="事件循环机制并不是js本身的特性">事件循环机制并不是js本身的特性</h2>
+<blockquote>
+<p>在谈事件循环的时候，经常会说请说一说JS的事件循环机制。这常常会让人产生一种误解，事件循环好像是JS语言的特性。实际上并不是，简单来说是宿主环境提供事件循环。</p>
+</blockquote>
+<p>浏览器宿主环境包含JS引擎和渲染引擎。最常见的宿主环境就是浏览器提供的环境。</p>
+<ul>
+<li>JS引擎：运行JavaScript代码。最出名的是Chrome的V8引擎。</li>
+<li>渲染引擎：对网页进行排版和显示。最出名的是Webkit引擎。</li>
+</ul>
+<p><strong>除了浏览器</strong>，<code>Node.js</code>也是一个主要的宿主环境，这个环境就不包含渲染引擎了。它也提供了同浏览器稍有不同的事件循环机制。</p>
+<h2 id="js是单线程语言">JS是单线程语言</h2>
+<blockquote>
+<p>在浏览器环境中，有JS 引擎线程和渲染线程，且两个线程互斥。<br>
+Node环境中，只有JS 线程。</p>
+</blockquote>
+<p>JS是单线程的，一个任务完成之后才能执行另一个任务。<br>
+比如下面这串代码,我们可以思考下输出结果是<code>setTimeout</code>的会穿插到<code>for</code>之间还是说在最后</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">2000</span>;i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125; </span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;<span class="built_in">console</span>.log(<span class="number">2</span>)&#125;,<span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>结果是输出了2000个1之后再输出3,再输出2。</p>
+<p>因为JS引擎并不提供事件循环，且关键的一点，JS是单线程语言，所以浏览器<strong>需要有一种机制，让JS能处理异步任务</strong>，于是有了事件循环机制。</p>
+<h2 id="调用栈-call-stack">调用栈 Call Stack</h2>
+<p>在<code>JavaScript</code>运行的时候，主线程会形成一个栈，这个栈主要是解释器用来最终函数执行流的一种机制。通常这个栈被称为<code>调用栈Call Stack</code>，或者<code>执行栈（Execution Context Stack）</code>。</p>
+<ul>
+<li>每调用一个函数，解释器就会把该函数的执行上下文添加到调用栈并开始执行；</li>
+<li>正在调用栈中执行的函数，如果还调用了其他函数，那么新函数也会被添加到调用栈，并立即执行；</li>
+<li>当前函数执行完毕后，解释器会将其执行上下文清除调用栈，继续执行剩余执行上下文中的剩余代码；</li>
+<li>但分配的调用栈空间被占满，会引发”堆栈溢出“的报错。</li>
+</ul>
+<h2 id="任务队列">任务队列</h2>
+<p>由于js是单线程的执行方式，这个时候会衍生出一些问题，就是如果当一个语句需要执行很长一段事件的话，比如请求数据、定时器、读取文件等，后面的语句就一定得等到前面的执行语句结束之后才会执行，显而易见，这是不可取的。</p>
+<p>所以js将所有执行任务分为了<code>同步任务</code>和<code>异步任务</code>。</p>
+<p>其实我们每个任务都是在做两件事情，就是<strong>发起调用</strong>和<strong>得到结果</strong>。<br>
+而同步任务和异步任务最主要的差别就是，同步任务发起调用后，很快就可以得到结果，而异步任务是无法立即得到结果，比如请求接口，每个接口都会有一定的响应时间，根据网速、服务器等等因素决定，再比如定时器，它需要固定时间后才会返回结果。</p>
+<p>因此，对于同步任务和异步任务的执行机制也不同。<br>
+<strong>同步任务的执行</strong>，就是按照代码顺序和调用循序，进入调用栈中并执行，执行结束后就移除调用栈。<br>
+而<strong>异步任务的执行</strong>，首先它依旧会进入调用栈中，并发起调用，然后解析器会<strong>将其响应回调任务</strong>放入一个<strong>任务队列</strong>，接着调用栈会将这个任务一处，当主线程清空后（即所有同步任务结束后）,解析器会读取任务队列，并一次将**已完成的异步任务（事件回调）**加入调用栈中并执行。<br>
+<strong>注： 异步任务不是直接进入任务队列的</strong></p>
+<h3 id="宏任务微任务">宏任务微任务</h3>
+<p>在任务队列中，分为<code>宏任务队列（Task Queue）</code>和<code>微任务队列（Microtask Queue）</code>，对应的里面存放的就是<code>宏任务</code>和<code>微任务</code>。</p>
+<p><strong>宏任务:</strong> <code>Ajax</code> 、<code>setTimeout</code>、<code>setInterval</code>、<code>setImediate</code>（node）、<code>requestAnimationFrame</code>(浏览器)、<code>读取文件</code>，这些任务都是宏任务<br>
+<strong>微任务:</strong> <code>Promise.then/catch/finally</code> 、<code>MutaionObserver</code>（浏览器）、<code>process.nextTick</code>（Node.js），这些任务都是微任务</p>
+<p>首先，<strong>宏任务和微任务都是异步任务</strong>。</p>
+<h3 id="任务队列入队">任务队列入队</h3>
+<p>虽说JS是单线程语言，<strong>但是浏览器是多线程的</strong>。对于不同的线程会对不同的事件进行处理，当事件可以执行的时候，就会放入任务队列之中。</p>
+<ul>
+<li><strong>js引擎线程</strong>：用于解释执行js代码、用户输入、网络请求等；</li>
+<li><strong>GUI渲染线程</strong>：绘制用户界面，与JS主线程互斥（因为js可以操作DOM，进而会影响到GUI的渲染结果）；</li>
+<li><strong>http异步网络请求线程</strong>：处理用户的get、post等请求，等返回结果后将回调函数推入到任务队列；</li>
+<li><strong>定时触发器线程</strong>：setInterval、setTimeout等待时间结束后，会把执行函数推入任务队列中；</li>
+<li><strong>浏览器事件处理线程</strong>：将click、mouse等UI交互事件发生后，将要执行的回调函数放入到事件队列中。</li>
+</ul>
+<p>我们根据下面代码来理解一下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;,<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>按照上面结论<strong>当事件可以执行的时候,就会放入任务队列之中</strong>，第二个定时器的事件比第一个事件先执行，即先放入队列之中，所以是先输出的2再是1.</p>
+<h3 id="执行顺序">执行顺序</h3>
+<ol>
+<li>同步程序</li>
+<li>process.nextTick</li>
+<li>微任务</li>
+<li>宏任务</li>
+<li>setimmediate</li>
+</ol>
+<h2 id="事件循环">事件循环</h2>
+<p><img src="https://img.kyootah.com/2022/03/08/97916a96baef2.png" alt></p>
+<p>从这张图 我们可以得出来一个结论，<strong>同步任务永远先于异步任务执行</strong>。因为执行栈判断出该任务是同步任务，会直接执行，而异步任务会加入到任务队列(一种先进先出的数据结构）后，暂且不会执行。等到执行栈为空后，再看任务队列的首任务有没有事件回调，存在事件回调那就执行，执行完后移出任务队列，依次往复，直到任务队列为空。</p>
+<p>我们来通过一个常见的面试题来理解一下事件循环</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"a"</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"b"</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"c"</span>);</span><br><span class="line">    resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"d"</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"e"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"f"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 输出结果：a c f d e b</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>我们来解析一下循环步骤：</p>
+<ol>
+<li>代码执行，先将<strong>整体代码script</strong>推入宏任务队列中，执行该宏任务。</li>
+<li>执行同步代码<code>console.log(&quot;a&quot;)</code>：推入调用栈，执行完成后移出调用栈。</li>
+<li>执行<code>setTimeout()</code>：由于<code>setTimeout()</code>是宏任务，所以进入调用栈中，将它的callback推入宏任务队列后移出调用栈</li>
+<li>接下来是<code>Promise</code>,先将<code>Promise</code>推入调用栈，执行<code>console.log(&quot;c&quot;)</code>…,执行<code>resolve()</code>…。（这里…省略调用栈的入栈出栈</li>
+<li>接下来是<code>new Promise().then()</code>，这是一个微任务，因此推入微任务队列之中<code>new Promise()</code>结束，移出调用栈</li>
+<li>接下来是<code>console.log('f')</code>,执行结束，<code>script</code>宏任务就结束了，移出宏任务队列。</li>
+<li>接下来就开始清空微任务队列。首先执行的是<code>new Promise().then()</code>，推入调用栈，执行并移出调用栈</li>
+<li>结束<code>console.log('d')</code>后检测还有一个<code>then</code>，将其推入微任务队列后将本次then移出微任务队列。</li>
+<li>接着再查一遍微任务队列，发现还有一个<code>then</code>，因此继续执行下一个<code>then</code>,将其推入调用栈，执行并移除，此时微任务队列就清空了，第一个事件循环结束</li>
+<li>接下来执行下一个宏任务，<code>setTimeout callback</code>,执行结束后，它也被移除宏任务队列和调用栈。</li>
+<li>这时候微任务队列里面没有任务，因此第二个事件循环也结束了</li>
+</ol>
+<p>总结：</p>
+<ul>
+<li>从宏任务队列中，按照入队顺序，找到第一个执行的宏任务，放入调用栈，开始执行；</li>
+<li>执行完该宏任务下所有同步任务后，即调用栈清空后，该宏任务被推出宏任务队列，然后微任务队列开始按照入队顺序，依次执行其中的微任务，直至微任务队列清空为止；</li>
+<li>当微任务队列清空后，一个事件循环结束；</li>
+<li>接着从宏任务队列中，找到下一个执行的宏任务，开始第二个事件循环，直至宏任务队列清空为止。</li>
+</ul>
+<p>重点：</p>
+<ul>
+<li>当我们第一次执行的时候，解释器会将整体代码script放入宏任务队列中，因此事件循环是从第一个宏任务开始的；</li>
+<li>如果在执行微任务的过程中，产生新的微任务添加到微任务队列中，也需要一起清空；微任务队列没清空之前，是不会执行下一个宏任务的。</li>
+</ul>
+<h2 id="async-await">async await</h2>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/浏览器缓存/" data-toggle="tooltip" data-placement="top" title="理解浏览器缓存与存取流程">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#事件循环机制并不是js本身的特性"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">事件循环机制并不是js本身的特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#js是单线程语言"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">JS是单线程语言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#调用栈-call-stack"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">调用栈 Call Stack</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#任务队列"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">任务队列</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#宏任务微任务"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">宏任务微任务</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#任务队列入队"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">任务队列入队</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#执行顺序"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">执行顺序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#事件循环"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">事件循环</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#async-await"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">async await</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#JavaScript深入" title="JavaScript深入">JavaScript深入</a>
+                        
+                          <a class="tag" href="/tags/#事件循环" title="事件循环">事件循环</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/smoothscroll/1.4.9/SmoothScroll.min.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/nomi43786118">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/szw619">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KyooTah 2022  
+                    
+                 
+                </p>
+                <p class="copyright text-muted"><a  href="https://beian.miit.gov.cn/" >
+                    粤ICP备18158227号
+                </a></p>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.kyootah.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.kyootah.com/img/icon_wechat.png" width="0" height="0" /> -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>

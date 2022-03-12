@@ -17,8 +17,8 @@ tags:
 简单来说`BFC`是一个独立的区域，它内部的元素都依照它的规则渲染，不会与 BFC 外部打交道。
 
 ### 如何触发
-* `float`:不为none 
 * `overflow`:hidden | scroll | auto; （不是visible） 
+* `float`:不为none 
 * `display`:inline-block | table-cell | table-caption | flex | grid ;（ 非none 非inline 非block） 
 * `position`: absolute | fiexed ;（ 非relative） 
 可以简单理解成`OFDP`。
