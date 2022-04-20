@@ -211,6 +211,45 @@
 
 <div class="post-preview">
 
+    <a href="/article/js深拷贝的应用与封装/">
+        <h2 class="post-title">
+                                 
+            js深拷贝的应用与封装
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+在前端开发中，经常会遇到要对一个对象进行拷贝深拷贝，对于深拷贝我们往往只用JSON.parse(JSON.stringify())来进行深拷贝，但对于为什么需要深拷贝，JSON.parse(JSON.stringify())会有什么不足，可能我们并没有去过多了解，现在我们来详细聊聊。’
+
+基础知识
+在了解深拷贝之前，我们需要了解一些js的基础知识。
+js的数据类型
+在ES6中，js一共有7......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2021-12-23
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
+            
+              <a href="/tags/#js进阶" title="js进阶">js进阶</a>
+            
+              <a href="/tags/#深拷贝" title="深拷贝">深拷贝</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/article/事件循环机制/">
         <h2 class="post-title">
                                  
@@ -357,6 +396,48 @@ JS引擎：运行JavaScript代码。最出名的是Chrome的V8引擎。
               <a href="/tags/#边距重合" title="边距重合">边距重合</a>
             
               <a href="/tags/#边距塌陷" title="边距塌陷">边距塌陷</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/微信小程序/封装一个uniapp列表拖拽排序组件/">
+        <h2 class="post-title">
+                                 
+            封装一个uniapp列表拖拽排序组件
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            封装思路
+
+渲染列表使用absolute布局，然后拖拽时对各个项目的高度进行动态变更;
+利用longtap事件，监听开启对某个项目的拖拽状态;
+利用touchmove事件，对拖拽的高度进行实时监听;
+利用touchend事件，对原数组进行重排并输出;
+
+代码实现
+直接贴代码，注释讲解
+1234567891011121314151617&lt;template&gt;	&lt;view cla......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2021-09-04
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
+            
+              <a href="/tags/#拖拽排序" title="拖拽排序">拖拽排序</a>
+            
+              <a href="/tags/#uniapp" title="uniapp">uniapp</a>
             
         </div>
     
@@ -541,75 +622,6 @@ TCP 连接：TCP 三次握手
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/微信小程序/微信小程序后台播放音频/">
-        <h2 class="post-title">
-                                 
-            微信小程序后台播放音频
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            微信小程序播放音频途中息屏继续播放，或者后台接收消息提醒功能配置。
-
-全局配置
-实现后台播放须在app.js中做出声明，官方文档。
-123"requiredBackgroundModes": [    "audio"  ],
-播放音频方法改动
-要后台播放音频不能用audio组件，须换成api形式播放音频。
-12345678const backgroundAudioManager = wx.g......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by KyooTah on
-            2020-11-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/微信小程序/在scroll-view中使用sticky/">
-        <h2 class="post-title">
-                                 
-            解决在scroll-view中使用sticky无效
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-在小程序的scroll-view使用直接sticky粘性定位会出现无效问题。解决方法：用一个view包住所有子项。
-
-
-1234567891011121314151617.container&#123;  width: 100%;  height: 800rpx;&#125;.header &#123;  position: sticky;  position: -webkit-stick......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by KyooTah on
-            2020-10-16
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -651,7 +663,7 @@ TCP 连接：TCP 三次握手
     <div class="tags">
         
             
-            <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题" rel="5">工作中遇到的问题</a>
+            <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题" rel="7">工作中遇到的问题</a>
             
         
             
@@ -683,6 +695,22 @@ TCP 连接：TCP 三次握手
             
         
             
+            <a href="/tags/#js进阶" title="js进阶" rel="1">js进阶</a>
+            
+        
+            
+            <a href="/tags/#深拷贝" title="深拷贝" rel="1">深拷贝</a>
+            
+        
+            
+            <a href="/tags/#拖拽排序" title="拖拽排序" rel="1">拖拽排序</a>
+            
+        
+            
+            <a href="/tags/#uniapp" title="uniapp" rel="1">uniapp</a>
+            
+        
+            
             <a href="/tags/#前端基础" title="前端基础" rel="1">前端基础</a>
             
         
@@ -703,11 +731,11 @@ TCP 连接：TCP 三次握手
             
         
             
-            <a href="/tags/#JS基础" title="JS基础" rel="1">JS基础</a>
+            <a href="/tags/#http" title="http" rel="1">http</a>
             
         
             
-            <a href="/tags/#http" title="http" rel="1">http</a>
+            <a href="/tags/#JS基础" title="JS基础" rel="1">JS基础</a>
             
         
             
@@ -788,6 +816,10 @@ TCP 连接：TCP 三次握手
     <ul>
       
         <li>
+          <a href="/article/js深拷贝的应用与封装/">js深拷贝的应用与封装</a>
+        </li>
+      
+        <li>
           <a href="/article/事件循环机制/">理解浏览器与node的事件循环机制</a>
         </li>
       
@@ -803,10 +835,6 @@ TCP 连接：TCP 三次握手
           <a href="/article/BFC理解与应用/">BFC理解与应用</a>
         </li>
       
-        <li>
-          <a href="/article/重排(reflow)和重绘(repaint)/">回流(reflow)和重绘(repaint)</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -815,7 +843,7 @@ TCP 连接：TCP 三次握手
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
