@@ -144,14 +144,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -217,31 +217,19 @@
                 <blockquote>
 <p>在解析URL之后浏览器根据缓存（强缓存、协商缓存）规则来决定是否取用缓存还是加载服务器资源来进行加载。</p>
 </blockquote>
-<h2 id="强缓存">强缓存</h2>
-<p>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。<br>
-强缓存又分为两种：<code>Expires</code>和<code>Cache-Control</code><br>
-<img src="http://img.kyootah.com/2022/02/12/ab29c20beebcc.png" alt></p>
-<h3 id="强缓存验证">强缓存验证</h3>
-<ul>
+<h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。<br>强缓存又分为两种：<code>Expires</code>和<code>Cache-Control</code><br><img src="http://img.kyootah.com/2022/02/12/ab29c20beebcc.png" alt></p>
+<h3 id="强缓存验证"><a href="#强缓存验证" class="headerlink" title="强缓存验证"></a>强缓存验证</h3><ul>
 <li>验证位置：<strong>本地</strong>（内存或者硬盘，根据浏览器策略决定）</li>
 <li>验证字段：<code>expires</code> (http1.0中出现)和<code>cache-control</code> (http1.1中出现)两个，<strong>如果这两个字段同时出现，cache-control会覆盖expires</strong></li>
 <li>验证流程： 查看两个字段的指定时间，如果过期则跳到下一阶段（协商缓存）</li>
 <li>如果命中： 状态码：200 (from disk cache)或是200 OK (from memory cache) <strong>注：根据该缓存的内存占用进行存储，内存占用过高则存入磁盘</strong></li>
 </ul>
-<h3 id="cache-control参数">cache-control参数</h3>
-<blockquote>
-<p>常用参数：<br>
-<code>private</code>：客户端可以缓存<br>
-<code>public</code>：客户端和代理服务器均可缓存；<br>
-<code>max-age=xxx</code>：缓存的资源将在 xxx 秒后过期，常见：2592000（三十天）、31536000（一年）；<br>
-<code>no-cache</code>：跳过当前强验证步骤，使用下一阶段协商缓存来验证是否过期；<br>
-<code>must-revalidate</code>：如果强缓存时间过期，必须去服务器进行有效性检验这个旧的缓存<br>
-<code>no-transform</code>：多用于图片，不允许对资源进行转换压缩</p>
+<h3 id="cache-control参数"><a href="#cache-control参数" class="headerlink" title="cache-control参数"></a>cache-control参数</h3><blockquote>
+<p>常用参数：<br><code>private</code>：客户端可以缓存<br><code>public</code>：客户端和代理服务器均可缓存；<br><code>max-age=xxx</code>：缓存的资源将在 xxx 秒后过期，常见：2592000（三十天）、31536000（一年）；<br><code>no-cache</code>：跳过当前强验证步骤，使用下一阶段协商缓存来验证是否过期；<br><code>must-revalidate</code>：如果强缓存时间过期，必须去服务器进行有效性检验这个旧的缓存<br><code>no-transform</code>：多用于图片，不允许对资源进行转换压缩</p>
 </blockquote>
 <p>其他参数：</p>
 <ul>
-<li>请求头：
-<ul>
+<li>请求头：<ul>
 <li><strong>no-cache</strong>：告知 (代理) 服务器不直接使用缓存，要求向原服务器发起请求</li>
 <li><strong>no-store</strong>：所有内容都不会被保存到缓存或 Internet 临时文件中</li>
 <li><strong>max-age=delta-seconds</strong>：告知服务器客户端希望接收一个存在时间不大于 delta-secconds 秒的资源</li>
@@ -252,8 +240,7 @@
 <li><strong>cache-extension</strong>：自定义扩展值，若服务器不识别该值将被忽略掉</li>
 </ul>
 </li>
-<li>响应头：
-<ul>
+<li>响应头：<ul>
 <li><strong>public</strong>：表明任何情况下都得缓存该资源 (即使是需要 HTTP 认证的资源)</li>
 <li><strong>Private=field-name</strong>：表明返回报文中全部或部分 (若指定了 field-name 则为 field-name 的字段数据) 仅开放给某些用户 (服务器指定的 share-user，如代理服务器) 做缓存使用，其他用户则不能缓存这些数据</li>
 <li><strong>no-cache</strong>：不直接使用缓存，要求向服务器发起 (新鲜度校验) 请求</li>
@@ -268,26 +255,16 @@
 </ul>
 </li>
 </ul>
-<h2 id="协商缓存">协商缓存</h2>
-<p>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程。</p>
-<h3 id="协商缓存验证">协商缓存验证</h3>
-<ul>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程。</p>
+<h3 id="协商缓存验证"><a href="#协商缓存验证" class="headerlink" title="协商缓存验证"></a>协商缓存验证</h3><ul>
 <li>验证位置：<strong>服务器</strong></li>
 <li>验证字段：有两组，<code>Last-Modified(响应头) + If-Modified-Since(请求头)</code>和<code>ETag(响应头) + If-None-Match(请求头)</code>,<strong>如果两种方式都支持的话，服务器会优先考虑 ETag</strong></li>
-<li>验证流程如下<br>
-<img src="http://img.kyootah.com/2022/02/12/cedcec762c907.png" alt></li>
+<li>验证流程如下<br><img src="http://img.kyootah.com/2022/02/12/cedcec762c907.png" alt></li>
 </ul>
 <ul>
-<li>
-<p><strong>Last-Modified(响应头) + If-Modified-Since(请求头)</strong><br>
-在浏览器第一次给服务器发送请求后，服务器会在响应头中加上这个字段。<br>
-浏览器接收到后，如果再次请求，会在请求头中携带<code>If-Modified-Since</code>字段，这个字段的值也就是服务器传来的最后修改时间。<br>
-服务器拿到请求头中的<code>If-Modified-Since</code>的字段后，其实会和这个服务器中该资源的最后修改时间<code>Last-Modified</code>对比, 询问服务器在该日期后资源是否有更新，有更新的话就会将新的资源发送回来。但是如果在本地打开缓存文件，就会造成 <code>Last-Modified</code> 被修改，所以在 HTTP / 1.1 出现了 <code>ETag</code>。</p>
+<li><p><strong>Last-Modified(响应头) + If-Modified-Since(请求头)</strong><br>在浏览器第一次给服务器发送请求后，服务器会在响应头中加上这个字段。<br>浏览器接收到后，如果再次请求，会在请求头中携带<code>If-Modified-Since</code>字段，这个字段的值也就是服务器传来的最后修改时间。<br>服务器拿到请求头中的<code>If-Modified-Since</code>的字段后，其实会和这个服务器中该资源的最后修改时间<code>Last-Modified</code>对比, 询问服务器在该日期后资源是否有更新，有更新的话就会将新的资源发送回来。但是如果在本地打开缓存文件，就会造成 <code>Last-Modified</code> 被修改，所以在 HTTP / 1.1 出现了 <code>ETag</code>。</p>
 </li>
-<li>
-<p><strong>ETag(响应头)、If-None-Match(请求头)</strong><br>
-<code>ETag</code>是服务器根据当前文件的内容，给文件生成的<strong>唯一标识</strong>，只要里面的内容有改动，这个值就会变。服务器通过响应头把这个值给浏览器。<br>
-浏览器接收到 <code>ETag</code> 的值，会在下次请求时，将这个值作为<code>If-None-Match</code>这个字段的内容，并放到请求头中，然后发给服务器。</p>
+<li><p><strong>ETag(响应头)、If-None-Match(请求头)</strong><br><code>ETag</code>是服务器根据当前文件的内容，给文件生成的<strong>唯一标识</strong>，只要里面的内容有改动，这个值就会变。服务器通过响应头把这个值给浏览器。<br>浏览器接收到 <code>ETag</code> 的值，会在下次请求时，将这个值作为<code>If-None-Match</code>这个字段的内容，并放到请求头中，然后发给服务器。</p>
 </li>
 </ul>
 

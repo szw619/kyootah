@@ -93,13 +93,6 @@
     </url>
 
     <url>
-        <loc>http://www.kyootah.com/tags/css/</loc>
-        <lastmod>2022-03-10T01:47:50.556Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.kyootah.com/tags/BFC/</loc>
         <lastmod>2022-03-10T01:47:50.556Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -115,6 +108,13 @@
 
     <url>
         <loc>http://www.kyootah.com/tags/%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7/</loc>
+        <lastmod>2022-03-10T01:47:50.556Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.kyootah.com/tags/css/</loc>
         <lastmod>2022-03-10T01:47:50.556Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

@@ -144,14 +144,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -214,24 +214,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="定意">定意</h2>
-<blockquote>
+                <h2 id="定意"><a href="#定意" class="headerlink" title="定意"></a>定意</h2><blockquote>
 <p>可选链式操作符(?.)允许读取位于连接对象链深处的属性值, 而不必明确验证链中的每个引用是否有效。</p>
 </blockquote>
 <p>通俗点讲：该操作符跟.链式操作符类似, 不同之处在于引用为null或者undefined的情况下不会引起报错, 不存在返回值是undefined.</p>
-<h2 id="作用">作用</h2>
-<p>在查询具有多个层级的对象时、不再需要进行冗余的前置校验、</p>
-<h2 id="链式操作符">链式操作符(.)</h2>
-<p>我们平时开发时要取对象中的某一个属性时用到,但遇到对象是null或undefined时就会报错。<br>
-为了避免报错，我们需要对对象进行一个非空判断，当对象有很多层嵌套时，就会产生大量类似繁琐的校验步骤。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> status1 =  obj &amp;&amp; obj.info &amp;&amp; obj.info.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status1) <span class="comment">//null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> status2 = obj.info.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status2) <span class="comment">//error</span></span><br></pre></td></tr></table></figure>
-<p>我们会发现，如果不先确认对象非null，就会出现报错，判断了又多写很多校验代码。<br>
-于是有了** 可选链式操作符(?.)**</p>
-<h2 id="可选链式操作符">可选链式操作符(?.)</h2>
-<p>我们来试下通过可选链式操作符(?.)简化上面繁琐的校验步骤。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> status=obj?.info?.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status) <span class="comment">// null;</span></span><br></pre></td></tr></table></figure>
-<p>是不是简洁很多了。<br>
-结果是：若该obj或者obj.info为null/undefined, 则会直接返回undefined;</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p> 在查询具有多个层级的对象时、不再需要进行冗余的前置校验、</p>
+<h2 id="链式操作符"><a href="#链式操作符" class="headerlink" title="链式操作符(.)"></a>链式操作符(.)</h2><p>我们平时开发时要取对象中的某一个属性时用到,但遇到对象是null或undefined时就会报错。<br>为了避免报错，我们需要对对象进行一个非空判断，当对象有很多层嵌套时，就会产生大量类似繁琐的校验步骤。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> status1 =  obj &amp;&amp; obj.info &amp;&amp; obj.info.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status1) <span class="comment">//null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> status2 = obj.info.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status2) <span class="comment">//error</span></span><br></pre></td></tr></table></figure></p>
+<p>我们会发现，如果不先确认对象非null，就会出现报错，判断了又多写很多校验代码。<br>于是有了<strong> 可选链式操作符(?.)</strong></p>
+<h2 id="可选链式操作符"><a href="#可选链式操作符" class="headerlink" title="可选链式操作符(?.)"></a>可选链式操作符(?.)</h2><p>我们来试下通过可选链式操作符(?.)简化上面繁琐的校验步骤。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> status=obj?.info?.isCheck;</span><br><span class="line"><span class="built_in">console</span>.log(status) <span class="comment">// null;</span></span><br></pre></td></tr></table></figure></p>
+<p>是不是简洁很多了。<br>结果是：若该obj或者obj.info为null/undefined, 则会直接返回undefined;</p>
 
                 
 

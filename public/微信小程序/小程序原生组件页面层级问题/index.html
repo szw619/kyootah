@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,11 +216,8 @@
 <p>为什么小程序 map、canvas、video、textarea  组件总是在最上层？</p>
 </blockquote>
 <p>map、canvas、video、textarea 是由客户端创建的原生组件，原生组件的层级是最高的，所以页面中的其他组件无论设置 z-index 为多少，都无法盖在原生组件上。 原生组件暂时还无法放在 scroll-view 上，也无法对原生组件设置 css 动画,这个是小程序的设计问题。</p>
-<h2 id="解决方法">解决方法</h2>
-<p>使用小程序提供的原生组件<code>cover-view</code>与<code>cover-image</code>替换需要置顶的<code>view</code>与<code>image</code></p>
-<h2 id="缺点">缺点</h2>
-<p><code>cover-view</code>与<code>cover-image</code>有很多缺陷，待官方更新<br>
-<a href="https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>使用小程序提供的原生组件<code>cover-view</code>与<code>cover-image</code>替换需要置顶的<code>view</code>与<code>image</code></p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p><code>cover-view</code>与<code>cover-image</code>有很多缺陷，待官方更新<br><a href="https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html" target="_blank" rel="noopener">官方文档</a></p>
 
                 
 

@@ -144,14 +144,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -217,9 +217,8 @@
                 <blockquote>
 <p>日常开发中<code>new</code>经常会出现在代码里，是时候花点时间深入理解一下<code>new</code>相关的知识点了。</p>
 </blockquote>
-<h3 id="new到底做了哪些事情">new到底做了哪些事情</h3>
-<p>先举个栗子</p>
-<pre><code class="language-js">function Person(firtName, lastName) {
+<h3 id="new到底做了哪些事情"><a href="#new到底做了哪些事情" class="headerlink" title="new到底做了哪些事情"></a>new到底做了哪些事情</h3><p>先举个栗子</p>
+<pre><code class="lang-js">function Person(firtName, lastName) {
   this.firtName = firtName;
   this.lastName = lastName;
 }
@@ -228,8 +227,8 @@ Person.prototype.getFullName = function () {
   return `${this.firtName} ${this.lastName}`;
 };
 
-const wyf = new Person('Wu', 'yifang');
-console.log(wyf); 
+const wyf = new Person(&#39;Wu&#39;, &#39;yifang&#39;);
+console.log(wyf);
 </code></pre>
 
                 

@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://www.kyootah.com/page/2/">
+    <link rel="canonical" href="http://www.kyootah.com/archives/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,42 +211,6 @@
 
 <div class="post-preview">
 
-    <a href="/微信小程序/微信小程序后台播放音频/">
-        <h2 class="post-title">
-                                 
-            微信小程序后台播放音频
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            微信小程序播放音频途中息屏继续播放，或者后台接收消息提醒功能配置。
-
-全局配置
-实现后台播放须在app.js中做出声明，官方文档。
-123"requiredBackgroundModes": [    "audio"  ],
-播放音频方法改动
-要后台播放音频不能用audio组件，须换成api形式播放音频。
-12345678const backgroundAudioManager = wx.g......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by KyooTah on
-            2020-11-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/微信小程序/在scroll-view中使用sticky/">
         <h2 class="post-title">
                                  
@@ -293,9 +257,7 @@
 当我在Element的dailog组件中使用富文本编辑器tinymce-editor的时候发现图片上传弹窗的层级比Element组件的层级低了不少，导致显示被遮挡的情况，后来发现在引用的时候可以设置默认属性，记录一下加深印象。
 
 dailog组件默认会加上一个z-index
-
-官网文档有说明这个问题
-1Vue.use(Element, &#123; size: &apos;small&ap......
+官网文档有说明这个问题1Vue.use(Element, &#123; size: &apos;small&apos......
         </div>
     </a>
     
@@ -327,14 +289,13 @@ dailog组件默认会加上一个z-index
             
 日常开发中new经常会出现在代码里，是时候花点时间深入理解一下new相关的知识点了。
 
-new到底做了哪些事情
-先举个栗子
+new到底做了哪些事情先举个栗子
 function Person(firtName, lastName) {
   this.firtName = firtName;
   this.lastName = lastName;
 }
 
-Person.prototype.getFullName = functi......
+Person.prototype.getFullName = functio......
         </div>
     </a>
     
@@ -347,6 +308,38 @@ Person.prototype.getFullName = functi......
               <a href="/tags/#JavaScript深入" title="JavaScript深入">JavaScript深入</a>
             
               <a href="/tags/#JS基础" title="JS基础">JS基础</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/css/弹性布局flex详解/">
+        <h2 class="post-title">
+                                 
+            弹性布局flex详解
+        </h2>
+        <h3 class="post-subtitle">
+            flex学习详细记录，理解各个属性的特性及用法。
+        </h3>
+        <div class="post-content-preview">
+            背景Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性,旨在提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。
+Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度（和排列顺序），从而能够最好地填充可用空间 （主要是为了适应所有类型的显示设备和屏幕尺寸） flex布容器能够放大子元素......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2020-05-11
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#css" title="css">css</a>
+            
+              <a href="/tags/#flex弹性布局" title="flex弹性布局">flex弹性布局</a>
             
         </div>
     
@@ -468,7 +461,11 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
             
         
             
-            <a href="/tags/#css" title="css" rel="3">css</a>
+            <a href="/tags/#js进阶" title="js进阶" rel="1">js进阶</a>
+            
+        
+            
+            <a href="/tags/#深拷贝" title="深拷贝" rel="1">深拷贝</a>
             
         
             
@@ -484,6 +481,10 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
             
         
             
+            <a href="/tags/#css" title="css" rel="3">css</a>
+            
+        
+            
             <a href="/tags/#JavaScript深入" title="JavaScript深入" rel="2">JavaScript深入</a>
             
         
@@ -492,11 +493,11 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
             
         
             
-            <a href="/tags/#js进阶" title="js进阶" rel="1">js进阶</a>
+            <a href="/tags/#前端基础" title="前端基础" rel="1">前端基础</a>
             
         
             
-            <a href="/tags/#深拷贝" title="深拷贝" rel="1">深拷贝</a>
+            <a href="/tags/#浏览器基础" title="浏览器基础" rel="1">浏览器基础</a>
             
         
             
@@ -505,14 +506,6 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
         
             
             <a href="/tags/#uniapp" title="uniapp" rel="1">uniapp</a>
-            
-        
-            
-            <a href="/tags/#前端基础" title="前端基础" rel="1">前端基础</a>
-            
-        
-            
-            <a href="/tags/#浏览器基础" title="浏览器基础" rel="1">浏览器基础</a>
             
         
             
@@ -525,10 +518,6 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
         
             
             <a href="/tags/#浏览器缓存" title="浏览器缓存" rel="1">浏览器缓存</a>
-            
-        
-            
-            <a href="/tags/#http" title="http" rel="1">http</a>
             
         
             
@@ -549,6 +538,10 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
         
             
             <a href="/tags/#项目优化" title="项目优化" rel="1">项目优化</a>
+            
+        
+            
+            <a href="/tags/#http" title="http" rel="1">http</a>
             
         
     </div>
