@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,6 +211,175 @@
 
 <div class="post-preview">
 
+    <a href="/article/重排(reflow)和重绘(repaint)/">
+        <h2 class="post-title">
+                                 
+            回流(reflow)和重绘(repaint)
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+平时聊到关于前端优化的问题的时候经常听到回流重绘这个词，很多人都知道要减少浏览器的回流和重绘但对于具体操作及其原理比不了解，今天我们就要彻底掌握他！
+
+网页生成过程在了解回流重绘前我们先得知道html的渲染过程。
+
+HTML被HTML解析器解析成DOM 树
+css则被css解析器解析成CSSOM 树
+结合DOM树和CSSOM树，生成一棵渲染树(Render Tree)
+生成布局（flow）......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2021-08-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#渲染队列" title="渲染队列">渲染队列</a>
+            
+              <a href="/tags/#回流重绘" title="回流重绘">回流重绘</a>
+            
+              <a href="/tags/#前端进阶" title="前端进阶">前端进阶</a>
+            
+              <a href="/tags/#项目优化" title="项目优化">项目优化</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/计算机基础知识-什么是http？/">
+        <h2 class="post-title">
+                                 
+            计算机基础知识-什么是http？
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+阅读《图解http》总结，这本书通俗易懂，推荐阅读^_^http 是 TCP/IP 内部的一个子集。
+
+名词解释
+
+
+名词
+解释
+功能
+
+
+
+HTTP
+Hyper Text Transfer Protocol（超文本传输协议）（应用层）
+从服务器传输文本到本地浏览器的传输协议
+
+
+HTML
+超文本标记语言
+
+
+
+URL
+统一资源定位系统（uniform resource locator）
+......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2021-05-08
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#http" title="http">http</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/从URL输入到页面展现到底发生什么？/">
+        <h2 class="post-title">
+                                 
+            从URL输入到页面展现到底发生什么？
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            概述从开发&amp;运维角度方面来看，可以分为下几个过程： 
+
+解析出协议、主机、端口、路径等信息，并构造一个HTTP请求DNS 解析:将域名解析成 IP 地址TCP 连接：TCP 三次握手发送 HTTP 请求服务器处理请求并返回 HTTP 报文浏览器解析渲染页面断开连接：TCP 四次挥手
+
+前置内容浏览器是多进程的，主要分为：
+
+浏览器主进程：只有一个，主要控制页面的创建、销毁、网络资源管......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2021-04-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#前端基础" title="前端基础">前端基础</a>
+            
+              <a href="/tags/#浏览器基础" title="浏览器基础">浏览器基础</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/微信小程序/微信小程序后台播放音频/">
+        <h2 class="post-title">
+                                 
+            微信小程序后台播放音频
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            微信小程序播放音频途中息屏继续播放，或者后台接收消息提醒功能配置。
+
+
+全局配置实现后台播放须在app.js中做出声明，官方文档。
+123"requiredBackgroundModes": [    "audio"  ],
+
+播放音频方法改动要后台播放音频不能用audio组件，须换成api形式播放音频。
+12345678const backgroundAudioManager = wx.g......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by KyooTah on
+            2020-11-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题">工作中遇到的问题</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/微信小程序/在scroll-view中使用sticky/">
         <h2 class="post-title">
                                  
@@ -224,7 +393,8 @@
 在小程序的scroll-view使用直接sticky粘性定位会出现无效问题。解决方法：用一个view包住所有子项。
 
 
-1234567891011121314151617.container&#123;  width: 100%;  height: 800rpx;&#125;.header &#123;  position: sticky;  position: -webkit-stick......
+
+1234567891011121314151617.container&#123;  width: 100%;  height: 800rpx;&#125;.header &#123;  position: sticky;  position: -webkit-stic......
         </div>
     </a>
     
@@ -257,7 +427,8 @@
 当我在Element的dailog组件中使用富文本编辑器tinymce-editor的时候发现图片上传弹窗的层级比Element组件的层级低了不少，导致显示被遮挡的情况，后来发现在引用的时候可以设置默认属性，记录一下加深印象。
 
 dailog组件默认会加上一个z-index
-官网文档有说明这个问题1Vue.use(Element, &#123; size: &apos;small&apos......
+官网文档有说明这个问题
+1Vue.use(Element, &#123; size: &apos;small&apo......
         </div>
     </a>
     
@@ -360,8 +531,9 @@ Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度�
         <div class="post-content-preview">
             div盒子本身默认样式属性是独占一行，平时将各个内容横向排版是最常见的操作，记录总结一下div的几种横向排列方法~
 
+
 以下面代码为例，列举下横向div排列的方法
-1234567891011121314151617181920&lt;div class=&quot;wrap&quot;&gt;    &lt;div class=&quot;item div1&quot;&gt;div1&lt;......
+1234567891011121314151617181920&lt;div class=&quot;wrap&quot;&gt;    &lt;div class=&quot;item div1&quot;&gt;div1&lt......
         </div>
     </a>
     
@@ -453,22 +625,6 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
     <div class="tags">
         
             
-            <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题" rel="7">工作中遇到的问题</a>
-            
-        
-            
-            <a href="/tags/#js基础" title="js基础" rel="1">js基础</a>
-            
-        
-            
-            <a href="/tags/#js进阶" title="js进阶" rel="1">js进阶</a>
-            
-        
-            
-            <a href="/tags/#深拷贝" title="深拷贝" rel="1">深拷贝</a>
-            
-        
-            
             <a href="/tags/#BFC" title="BFC" rel="1">BFC</a>
             
         
@@ -485,7 +641,19 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
             
         
             
-            <a href="/tags/#JavaScript深入" title="JavaScript深入" rel="2">JavaScript深入</a>
+            <a href="/tags/#工作中遇到的问题" title="工作中遇到的问题" rel="7">工作中遇到的问题</a>
+            
+        
+            
+            <a href="/tags/#js基础" title="js基础" rel="1">js基础</a>
+            
+        
+            
+            <a href="/tags/#TypeScript" title="TypeScript" rel="1">TypeScript</a>
+            
+        
+            
+            <a href="/tags/#JavaScript深入" title="JavaScript深入" rel="3">JavaScript深入</a>
             
         
             
@@ -501,6 +669,26 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
             
         
             
+            <a href="/tags/#js进阶" title="js进阶" rel="1">js进阶</a>
+            
+        
+            
+            <a href="/tags/#深拷贝" title="深拷贝" rel="1">深拷贝</a>
+            
+        
+            
+            <a href="/tags/#文件分片上传" title="文件分片上传" rel="1">文件分片上传</a>
+            
+        
+            
+            <a href="/tags/#koa" title="koa" rel="1">koa</a>
+            
+        
+            
+            <a href="/tags/#flex弹性布局" title="flex弹性布局" rel="1">flex弹性布局</a>
+            
+        
+            
             <a href="/tags/#拖拽排序" title="拖拽排序" rel="1">拖拽排序</a>
             
         
@@ -509,7 +697,7 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
             
         
             
-            <a href="/tags/#flex弹性布局" title="flex弹性布局" rel="1">flex弹性布局</a>
+            <a href="/tags/#原型链" title="原型链" rel="1">原型链</a>
             
         
             
@@ -522,6 +710,10 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
         
             
             <a href="/tags/#JS基础" title="JS基础" rel="1">JS基础</a>
+            
+        
+            
+            <a href="/tags/#http" title="http" rel="1">http</a>
             
         
             
@@ -538,10 +730,6 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
         
             
             <a href="/tags/#项目优化" title="项目优化" rel="1">项目优化</a>
-            
-        
-            
-            <a href="/tags/#http" title="http" rel="1">http</a>
             
         
     </div>
@@ -606,23 +794,23 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
     <ul>
       
         <li>
+          <a href="/article/TypeScript中的泛型是什么？/">(no title)</a>
+        </li>
+      
+        <li>
+          <a href="/article/大文件分片上传与断点续传实现总结/">大文件分片上传与断点续传实现总结</a>
+        </li>
+      
+        <li>
+          <a href="/article/TypeScript中type和interface的区别/">TypeScript中type和interface的区别</a>
+        </li>
+      
+        <li>
           <a href="/article/js深拷贝的应用与封装/">js深拷贝的应用与封装</a>
         </li>
       
         <li>
           <a href="/article/事件循环机制/">理解浏览器与node的事件循环机制</a>
-        </li>
-      
-        <li>
-          <a href="/article/浏览器缓存/">理解浏览器缓存与存取流程</a>
-        </li>
-      
-        <li>
-          <a href="/article/ES2020可选链式操作符/">可选链式操作符(?.)</a>
-        </li>
-      
-        <li>
-          <a href="/article/BFC理解与应用/">BFC理解与应用</a>
         </li>
       
     </ul>
@@ -633,7 +821,7 @@ map、canvas、video、textarea 是由客户端创建的原生组件，原生组
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
